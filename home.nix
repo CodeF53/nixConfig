@@ -4,6 +4,7 @@
   imports = [
     inputs.zen-browser.homeModules.beta
     inputs.plasma-manager.homeManagerModules.plasma-manager
+    ./homeManager/dev.nix
   ];
   programs.home-manager.enable = true;
 
@@ -15,20 +16,7 @@
 
   home.packages = with pkgs; [
     equibop
-    zed-editor
   ];
-
-  programs.git = {
-    enable = true;
-    userName = "Cassie";
-    userEmail = "37855219+CodeF53@users.noreply.github.com";
-
-    extraConfig = {
-      core.editor = "micro";
-      init.defaultBranch = "main";
-      color.ui = true;
-    };
-  };
 
   programs.zen-browser = {
     enable = true;
@@ -38,29 +26,6 @@
     enable = true;
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
-    };
-  };
-
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set fish_greeting
-    '';
-    shellAliases = {
-      nano = "micro";
-      sys-rebuild = "sudo nixos-rebuild switch --flake ~/nixConfig";
-      sys-update = "nix flake update --flake ~/nixConfig && sys-rebuild";
-    };
-    plugins = with pkgs.fishPlugins; [
-      { name = "autopair"; src = autopair.src; }
-      { name = "bobthefish"; src = bobthefish.src; }
-    ];
-  };
-  programs.konsole = {
-    enable = true;
-    defaultProfile = "Fish";
-    profiles.Fish = {
-      command = "${pkgs.fish}/bin/fish";
     };
   };
 }
