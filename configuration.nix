@@ -9,9 +9,9 @@
   };
   nix.settings.auto-optimise-store = true;
   nix.gc = {
-  	automatic = true;
-  	dates = "Mon,Wed,Fri,Sun *-*-* 00:00:00";
-  	options = "--delete-old";
+    automatic = true;
+    dates = "Mon,Wed,Fri,Sun *-*-* 00:00:00";
+    options = "--delete-old";
   };
 
   networking = {
@@ -59,8 +59,8 @@
 
   # ssh!
   services.openssh = {
-  	enable = true;
-  	settings.PasswordAuthentication = false;
+    enable = true;
+    settings.PasswordAuthentication = false;
   };
   users.users.cassie.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDUj/KeS2gfoq1D8X4jQYM+rCgx5+3ls7vTpb0/HVnI" ];
   networking.firewall.enable = false;
