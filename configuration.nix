@@ -56,6 +56,8 @@
     git
     micro
   ];
+  # kinda upset this cant be in home.nix...
+  programs.steam.enable = true;
 
   # ssh!
   services.openssh = {
