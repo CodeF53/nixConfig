@@ -25,8 +25,8 @@
     comment = "Internet Messenger";
     categories = [ "Network" "InstantMessaging" "Chat" ];
   };
-  # # fix equibop logging me out every fucking restart
-  # xdg.configFile."equibop".source = /home/cassie/.config/equibop;
+  # note to self, ensure NoDevtoolsWarning is enabled if discord is logging you out constantly
+  # https://github.com/Vencord/Vesktop/issues/375#issuecomment-1925395338
 
   programs.zen-browser = {
     enable = true;
