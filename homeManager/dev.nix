@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     nixd
+    nil
   ];
 
   programs.git = {
@@ -45,12 +46,21 @@
     enable = true;
     extensions = ["nix" "vscode-dark-polished"];
     userSettings = {
+      terminal.shell.program = "fish";
       theme = {
         mode = "dark";
-        theme.dark = "VSCode Dark Polished";
-        theme.light = "One Light"; # have to specify something otherwise it just doesnt work...
+        dark = "VSCode Dark Polished";
+        light = "One Light"; # have to specify something otherwise it just doesnt work...
       };
-      terminal.shell.program = "fish";
+      # doesn't seem to work, would be really nice if it did...
+      # context_servers = {
+      #   nixos = {
+      #     source = "custom";
+      #     path = "nix";
+      #     args = ["run" "github:utensils/mcp-nixos" "--"];
+      #     env = {};
+      #   };
+      # };
     };
   };
 }
