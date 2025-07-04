@@ -1,9 +1,9 @@
-{ inputs, config, pkgs, ... }:
+extras@{ pkgs, ... }:
 
 {
   imports = [
-    inputs.zen-browser.homeModules.beta
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    extras.inputs.zen-browser.homeModules.beta
+    extras.inputs.plasma-manager.homeManagerModules.plasma-manager
     ./homeManager/dev.nix
   ];
   programs.home-manager.enable = true;

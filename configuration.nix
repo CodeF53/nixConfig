@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+extras@{ pkgs, ... }:
 
 {
   boot.kernelPackages = pkgs.linuxPackages_zen;
