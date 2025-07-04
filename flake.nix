@@ -1,5 +1,7 @@
 {
   inputs = {
+    env-toml.url = "file:///home/cassie/nixConfig/env.toml";
+    env-toml.flake = false;
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -14,6 +16,7 @@
     modules = [
       ./hardware-configuration.nix
       ./configuration.nix
+      { imports = [ (import ./enviroment-variables.nix { inherit inputs; }) ]; }
 
       home-manager.nixosModules.home-manager { home-manager = {
         useGlobalPkgs = true;

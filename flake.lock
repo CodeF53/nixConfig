@@ -1,5 +1,17 @@
 {
   "nodes": {
+    "env-toml": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-0dmAzG1lCi2hGmFd7kM8Tfa+lT9HcQldqJKE0St3cac=",
+        "type": "file",
+        "url": "file:///home/cassie/nixConfig/env.toml"
+      },
+      "original": {
+        "type": "file",
+        "url": "file:///home/cassie/nixConfig/env.toml"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -132,6 +144,7 @@
     },
     "root": {
       "inputs": {
+        "env-toml": "env-toml",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "plasma-manager": "plasma-manager",

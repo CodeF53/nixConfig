@@ -44,7 +44,7 @@
 
   programs.zed-editor = {
     enable = true;
-    extensions = ["nix" "vscode-dark-polished"];
+    extensions = ["nix" "toml" "vscode-dark-polished"];
     userSettings = {
       terminal.shell.program = "fish";
       theme = {
