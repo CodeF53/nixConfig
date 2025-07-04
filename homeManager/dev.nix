@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -51,7 +51,8 @@
         mode = "dark";
         dark = "VSCode Dark Polished";
         light = "One Light"; # have to specify something otherwise it just doesnt work...
-      };
+    };
+      autosave.after_delay.milliseconds = 500;
       # doesn't seem to work, would be really nice if it did...
       # context_servers = {
       #   nixos = {
