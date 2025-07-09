@@ -1,5 +1,4 @@
 todo:
-- [ ] set taskbar height to 30
 - [ ] syncplay
 - [ ] mpv
 - [ ] qbittorrent with config (nordvpn creds in enviroment.toml)
