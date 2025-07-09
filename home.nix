@@ -16,6 +16,7 @@ extras@{ pkgs, ... }:
   };
 
   home.packages = with pkgs; [
+    qbittorrent
   ];
 
   # fix equibop's desktop entry not having a fucking icon
