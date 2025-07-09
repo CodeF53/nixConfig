@@ -51,14 +51,23 @@ extras@{ pkgs, ... }:
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  # $ nix search NAME
   environment.systemPackages = with pkgs; [
     git
     micro
   ];
   # kinda upset this cant be in home.nix...
   programs.steam.enable = true;
-
+  
+  # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
+  nix.settings = {
+    trusted-users = [ "cassie" ];
+    substituters = [
+      "https://cache.nixos.org"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
+  };
+  
   # ssh!
   services.openssh = {
     enable = true;
