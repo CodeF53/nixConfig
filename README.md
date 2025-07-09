@@ -2,6 +2,7 @@ todo:
 - [ ] syncplay
 - [ ] mpv
 - [ ] qbittorrent config inside nixos (it doesnt have home manager so setting this up is a nightmare)
+  - [ ] just set torrent port in the horrors and put that port through a vpn? https://github.com/Maroka-chan/VPN-Confinement
 - [ ] nvidia for laptop
 - [ ] https://asus-linux.org/
 - [ ] btop (gpu enabled)
