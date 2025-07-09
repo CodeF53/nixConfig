@@ -4,3 +4,16 @@ todo:
 - [ ] set taskbar height to 30
 - [ ] syncplay
 - [ ] mpv
+- [ ] qbittorrent with config (nordvpn creds in enviroment.toml)
+- [ ] nvidia for laptop
+- [ ] https://asus-linux.org/
+- [ ] btop (gpu enabled)
+- [ ] btop monitor :3 (autostart btop on boot in minimal foot and position on specific monitor with desired windowrules)
+- [ ] spotify
+- [ ] zen browser pinned tabs & color config (#202A46 to #491A4B)
+- [ ] font config: [ Twemoji emoji, Nunito Sans sans-serif, Mochie Iosevka monospace ]
+- [ ] live captions
+- [ ] obs
+- [ ] scrcpy
+- [ ] signal
+- [ ] spectacle config
