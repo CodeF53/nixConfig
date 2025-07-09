@@ -51,17 +51,16 @@
         mode = "dark";
         dark = "VSCode Dark Polished";
         light = "One Light"; # have to specify something otherwise it just doesnt work...
-    };
+      };
       autosave.after_delay.milliseconds = 500;
-      # doesn't seem to work, would be really nice if it did...
-      # context_servers = {
-      #   nixos = {
-      #     source = "custom";
-      #     path = "nix";
-      #     args = ["run" "github:utensils/mcp-nixos" "--"];
-      #     env = {};
-      #   };
-      # };
+      agent = {
+        default_profile = "ask";
+        default_model = {
+          provider = "google";
+          model = "gemini-2.5-flash-preview-04-17";
+        };
+        version = "2";
+      };
     };
   };
 }
