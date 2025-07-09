@@ -9,6 +9,7 @@
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     plasma-manager.url = "github:nix-community/plasma-manager";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: { nixosConfigurations.cassietop = nixpkgs.lib.nixosSystem {
@@ -16,7 +17,9 @@
     modules = [
       ./hardware-configuration.nix
       ./configuration.nix
-      { imports = [ (import ./enviroment-variables.nix { inherit inputs; }) ]; }
+      { imports = [ (import ./modules/enviroment-variables.nix { inherit inputs; }) ]; }
+      inputs.nix-flatpak.nixosModules.nix-flatpak
+      ./modules/flatpak.nix
 
       home-manager.nixosModules.home-manager { home-manager = {
         useGlobalPkgs = true;
