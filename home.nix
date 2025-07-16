@@ -6,6 +6,7 @@ extras@{ pkgs, ... }:
     extras.inputs.plasma-manager.homeManagerModules.plasma-manager
     ./homeManager/dev.nix
     ./homeManager/kde.nix
+    ./homeManager/mpv.nix
   ];
   programs.home-manager.enable = true;
 
