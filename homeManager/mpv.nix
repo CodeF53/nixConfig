@@ -73,6 +73,7 @@ in
       [
         mpv-osc-tethys
         thumbfast
+        autosub
       ]
       ++ [
         seek-end

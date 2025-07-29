@@ -31,6 +31,7 @@ extras@{ pkgs, ... }:
     defaultSession = "plasma";
   };
   services.desktopManager.plasma6.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
   services.printing.enable = true;
 
@@ -55,6 +56,8 @@ extras@{ pkgs, ... }:
   environment.systemPackages = with pkgs; [
     git
     micro
+    qbittorrent
+    dolphin-emu
   ];
   # kinda upset this cant be in home.nix...
   programs.steam.enable = true;
