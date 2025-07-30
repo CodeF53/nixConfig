@@ -58,6 +58,7 @@ extras@{ pkgs, ... }:
     micro
     qbittorrent
     dolphin-emu
+    opencode
   ];
   # kinda upset this cant be in home.nix...
   programs.steam.enable = true;
