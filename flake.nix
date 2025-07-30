@@ -16,6 +16,7 @@
     system = "x86_64-linux";
     modules = [
       ./hardware-configuration.nix
+      ./modules/nvidia.nix
       ./configuration.nix
       { imports = [ (import ./modules/enviroment-variables.nix { inherit inputs; }) ]; }
       inputs.nix-flatpak.nixosModules.nix-flatpak

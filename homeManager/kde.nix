@@ -1,12 +1,21 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.plasma = {
     enable = true;
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
+      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/DarkestHour/contents/images/2560x1600.jpg";
     };
 
+    # Disable the stupid thing that happens when you put your mouse in the upper left
+    configFile = {
+      kwinrc = {
+        Effect-Overview.activationBorder = 0;
+        Effect-overview.BorderActivate = 9;
+      };
+    };
+    
     panels = [
       {
         location = "bottom";
