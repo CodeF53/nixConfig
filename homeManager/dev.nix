@@ -26,7 +26,7 @@
     shellAliases = {
       nano = "micro";
       sys-rebuild = "sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig";
-      sys-update = "nix flake update --flake ~/nixConfig && sys-rebuild";
+      sys-update = "nix flake update --flake ~/nixConfig && sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig";
     };
     plugins = with pkgs.fishPlugins; [
       { name = "autopair"; src = autopair.src; }
