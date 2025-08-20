@@ -7,6 +7,7 @@ extras@{ pkgs, ... }:
     ./homeManager/dev.nix
     ./homeManager/kde.nix
     ./homeManager/mpv.nix
+    ./homeManager/font.nix
   ];
   programs.home-manager.enable = true;
 
