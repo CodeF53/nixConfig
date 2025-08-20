@@ -5,10 +5,10 @@ todo:
   - [ ] personalize it (because I just stole from mochie <3)
 - [ ] qbittorrent config inside nixos (it doesnt have home manager so setting this up is a nightmare)
   - [ ] just set torrent port in the horrors and put that port through a vpn? https://github.com/Maroka-chan/VPN-Confinement
-- [ ] nvidia
+- [x] nvidia
   - [x] I have no idea what I have right now but it kinda half works
-  - [ ] proper laptop nvidia
-- [ ] https://asus-linux.org/
+  - [x] proper laptop nvidia
+  - [ ] add "dgpu" to desktop entry for zen
 - [ ] btop (gpu enabled)
 - [ ] btop monitor :3 (autostart btop on boot in minimal foot and position on specific monitor with desired windowrules)
 - [ ] spotify
