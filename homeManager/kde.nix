@@ -59,5 +59,13 @@
         ];
       }
     ];
+    
+    # cassietop touchpad settings
+    input.touchpads = [{
+      name = "ASUE1406:00 04F3:3101 Touchpad";
+      vendorId = "04f3";
+      productId = "3101";
+      disableWhileTyping = false;
+    }];
   };
 }
