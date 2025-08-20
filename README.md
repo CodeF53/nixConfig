@@ -5,13 +5,15 @@ todo:
   - [ ] personalize it (because I just stole from mochie <3)
 - [ ] qbittorrent config inside nixos (it doesnt have home manager so setting this up is a nightmare)
   - [ ] just set torrent port in the horrors and put that port through a vpn? https://github.com/Maroka-chan/VPN-Confinement
-- [x] nvidia for laptop
+- [ ] nvidia
+  - [x] I have no idea what I have right now but it kinda half works
+  - [ ] proper laptop nvidia
 - [ ] https://asus-linux.org/
 - [ ] btop (gpu enabled)
 - [ ] btop monitor :3 (autostart btop on boot in minimal foot and position on specific monitor with desired windowrules)
 - [ ] spotify
 - [ ] zen browser pinned tabs & color config (#202A46 to #491A4B)
-- [ ] font config: [ Twemoji emoji, Nunito Sans sans-serif, Mochie Iosevka monospace ]
+- [x] font config: [ Twemoji emoji, Nunito Sans sans-serif, Mochie Iosevka monospace ]
 - [ ] live captions
 - [ ] obs
 - [ ] scrcpy
