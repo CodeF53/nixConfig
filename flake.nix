@@ -20,6 +20,7 @@
       { imports = [ (import ./modules/enviroment-variables.nix { inherit inputs; }) ]; }
       inputs.nix-flatpak.nixosModules.nix-flatpak
       ./modules/flatpak.nix
+      ./modules/dev.nix
 
       home-manager.nixosModules.home-manager { home-manager = {
         useGlobalPkgs = true;

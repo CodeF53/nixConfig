@@ -18,10 +18,20 @@
     };
   };
 
+  programs.direnv.enable = true;
+  home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
+      direnv hook fish | source
+      function nish
+        begin
+          set -l pkg $argv[1]
+          set -lx NIXPKGS_ALLOW_UNFREE 1
+          command nix shell --impure "nixpkgs#$pkg"
+        end
+      end
     '';
     shellAliases = {
       nano = "micro";

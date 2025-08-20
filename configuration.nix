@@ -48,6 +48,7 @@ extras@{ pkgs, ... }:
     isNormalUser = true;
     description = "cassie";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
   };
   security.sudo.wheelNeedsPassword = false;
 
