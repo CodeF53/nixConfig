@@ -16,6 +16,7 @@
       };
     };
     
+    # the taskbar in question
     panels = [
       {
         location = "bottom";
@@ -67,5 +68,8 @@
       productId = "3101";
       disableWhileTyping = false;
     }];
+    
+    # sessionRestore is stupid
+    session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
   };
 }
