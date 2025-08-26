@@ -47,6 +47,7 @@
                 "org.kde.plasma.bluetooth"
                 "org.kde.plasma.networkmanagement"
                 "org.kde.plasma.battery"
+                "org.kde.plasma.powerdevil"
               ];
               hidden = [ "org.kde.plasma.clipboard" ];
             };

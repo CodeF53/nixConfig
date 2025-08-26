@@ -31,6 +31,9 @@ extras@{ pkgs, ... }:
     defaultSession = "plasma";
   };
   services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    discover kate gwenview okular elisa
+  ];
   environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
   services.printing.enable = true;

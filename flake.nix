@@ -27,6 +27,7 @@
         useUserPackages = true;
         extraSpecialArgs = { inherit inputs; };
         users.cassie = import ./home.nix;
+        backupFileExtension = "bak";
       }; }
     ];
   }; };
