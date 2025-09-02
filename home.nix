@@ -3,7 +3,7 @@ extras@{ pkgs, ... }:
 {
   imports = [
     extras.inputs.zen-browser.homeModules.beta
-    extras.inputs.plasma-manager.homeManagerModules.plasma-manager
+    extras.inputs.plasma-manager.homeModules.plasma-manager
     ./homeManager/dev.nix
     ./homeManager/kde.nix
     ./homeManager/mpv.nix

@@ -22,21 +22,22 @@
   home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = true;
+    preferAbbrs = false;
     interactiveShellInit = ''
       set fish_greeting
       direnv hook fish | source
-      function nish
-        begin
-          set -l pkg $argv[1]
-          set -lx NIXPKGS_ALLOW_UNFREE 1
-          command nix shell --impure "nixpkgs#$pkg"
-        end
-      end
     '';
+    functions = {
+      nish.body = ''
+        set -lx NIXPKGS_ALLOW_UNFREE 1
+        set -l pkgs "github:NixOS/nixpkgs/nixos-unstable#"$argv
+        command nix shell --impure (string join " " $pkgs)
+      '';
+    };
     shellAliases = {
       nano = "micro";
       sys-rebuild = "sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig";
-      sys-update = "nix flake update --flake ~/nixConfig && sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig";
+      sys-update = "nix flake update --flake ~/nixConfig && sys-rebuild";
     };
     plugins = with pkgs.fishPlugins; [
       { name = "autopair"; src = autopair.src; }
@@ -67,7 +68,7 @@
         default_profile = "ask";
         default_model = {
           provider = "google";
-          model = "gemini-2.5-flash-preview-04-17";
+          model = "gemini-2.5-flash";
         };
         version = "2";
       };
