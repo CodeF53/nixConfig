@@ -63,6 +63,7 @@ extras@{ pkgs, ... }:
     qbittorrent
     dolphin-emu
     opencode
+    wl-clipboard
   ];
   
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers

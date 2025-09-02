@@ -19,13 +19,14 @@
     # the taskbar in question
     panels = [
       {
+        screen = 0;
         location = "bottom";
         height = 30;
         widgets = [
           {
             kickoff = {
               sortAlphabetically = true;
-              icon = "nix-snowflake-white";
+              icon = "/home/cassie/nixConfig/files/trans-nix.svg";
             };
           }
           {
