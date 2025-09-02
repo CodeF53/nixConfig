@@ -64,8 +64,6 @@ extras@{ pkgs, ... }:
     dolphin-emu
     opencode
   ];
-  # kinda upset this cant be in home.nix...
-  programs.steam.enable = true;
   
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
   nix.settings = {

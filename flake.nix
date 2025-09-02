@@ -21,6 +21,7 @@
       inputs.nix-flatpak.nixosModules.nix-flatpak
       ./modules/flatpak.nix
       ./modules/dev.nix
+      ./modules/gaming.nix
 
       home-manager.nixosModules.home-manager { home-manager = {
         useGlobalPkgs = true;
