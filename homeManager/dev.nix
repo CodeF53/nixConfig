@@ -36,7 +36,7 @@
     };
     shellAliases = {
       nano = "micro";
-      sys-rebuild = "sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig";
+      sys-rebuild = "git -C ~/nixConfig add . && sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig";
       sys-update = "nix flake update --flake ~/nixConfig && sys-rebuild";
     };
     plugins = with pkgs.fishPlugins; [
