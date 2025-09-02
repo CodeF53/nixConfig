@@ -70,7 +70,11 @@
           provider = "google";
           model = "gemini-2.5-flash";
         };
-        version = "2";
+      };
+      title_bar = {
+        show_onboarding_banner = false;
+        show_user_picture = false;
+        show_sign_in = false;
       };
     };
   };
