@@ -1,6 +1,6 @@
 todo:
 - [x] kitty
-- [ ] zoxide
+- [x] zoxide
 - [ ] syncplay
 - [ ] mpv
   - [x] add
