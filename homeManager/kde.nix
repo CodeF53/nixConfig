@@ -73,5 +73,8 @@
     
     # sessionRestore is stupid
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
+    
+    # 100 is an insane default for this
+    kwin.edgeBarrier = 50;
   };
 }
