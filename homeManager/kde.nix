@@ -33,7 +33,7 @@
             iconTasks.launchers = [
               "applications:zen-beta.desktop"
               "applications:equibop.desktop"
-              "applications:org.kde.konsole.desktop"
+              "applications:kitty.desktop"
               "applications:org.kde.dolphin.desktop"
               "applications:steam.desktop"
               "applications:systemsettings.desktop"

@@ -2,7 +2,7 @@
 {
   programs.fish.enable = true;
   
-  environment.systemPackages = [ pkgs.direnv ];
+  environment.systemPackages = with pkgs; [ direnv ];
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

@@ -32,7 +32,7 @@ extras@{ pkgs, ... }:
   };
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    discover kate gwenview okular elisa
+    discover kate gwenview okular elisa konsole
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
@@ -64,6 +64,7 @@ extras@{ pkgs, ... }:
     dolphin-emu
     opencode
     wl-clipboard
+    btop
   ];
   
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
