@@ -15,7 +15,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: { nixosConfigurations.cassietop = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      ./hardware-configuration.nix
+      ./hosts/cassietop/hardware-configuration.nix
       ./configuration.nix
       { imports = [ (import ./modules/enviroment-variables.nix { inherit inputs; }) ]; }
       inputs.nix-flatpak.nixosModules.nix-flatpak
