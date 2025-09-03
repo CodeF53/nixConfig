@@ -72,6 +72,8 @@ extras@{ config, pkgs, ... }:
       };
     };
   };
+  # trying to fix sleep leading to gpu memory corruption
+  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
 
   # the duality of laptop
   powerManagement.cpuFreqGovernor = "performance";
