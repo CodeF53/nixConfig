@@ -65,6 +65,7 @@ extras@{ pkgs, ... }:
     opencode
     wl-clipboard
     btop
+    ncspot
   ];
   
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
