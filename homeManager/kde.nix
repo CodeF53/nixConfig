@@ -15,7 +15,7 @@
         Effect-overview.BorderActivate = 9;
       };
     };
-    
+
     # the taskbar in question
     panels = [
       {
@@ -62,19 +62,30 @@
         ];
       }
     ];
-    
+
     # cassietop touchpad settings
-    input.touchpads = [{
-      name = "ASUE1406:00 04F3:3101 Touchpad";
-      vendorId = "04f3";
-      productId = "3101";
-      disableWhileTyping = false;
-    }];
-    
+    input.touchpads = [
+      {
+        name = "ASUE1406:00 04F3:3101 Touchpad";
+        vendorId = "04f3";
+        productId = "3101";
+        disableWhileTyping = false;
+      }
+    ];
+
     # sessionRestore is stupid
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
-    
+
     # 100 is an insane default for this
     kwin.edgeBarrier = 50;
+
+    # hotkeys.commands = {
+    #   toggleScreenPad = {
+    #     key = "XF86Launch7";
+    #     command = pkgs.writeShellScript "toggle-screenpad.sh" ''
+    #       [ "$(cat /sys/class/leds/asus::screenpad/brightness)" -eq 0 ] && echo 255 > /sys/class/leds/asus::screenpad/brightness || echo 0 > /sys/class/leds/asus::screenpad/brightness
+    #     '';
+    #   };
+    # };
   };
 }
