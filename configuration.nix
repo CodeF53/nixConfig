@@ -1,7 +1,7 @@
 extras@{ pkgs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
   boot.loader = {
     systemd-boot.enable = true;
     systemd-boot.configurationLimit = 5;

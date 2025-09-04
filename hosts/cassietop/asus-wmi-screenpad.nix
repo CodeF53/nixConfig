@@ -98,6 +98,11 @@ let
       "asus-wmi.h" = "1gf5q4wxr7s9him6y7m44pczgawlnwch6w4whd00sfdxcpvc0fif";
       "asus-nb-wmi.c" = "150j6h8jw90f66sxhg18f6qwkgh8zjpq54mamab45jxyj1ib560r";
     };
+    "6.16" = {
+      "asus-wmi.c" = "sha256-itRfuzJoI7hjWwxUP/1YiZYtxJ7r2CkQWJn8r0XWUhM=";
+      "asus-wmi.h" = "sha256-WcTmzV8SvlmYUAbdnk/3CMu+VAH9Qy05FUowblbFLu8=";
+      "asus-nb-wmi.c" = "sha256-4cSWqLWHhkl4xyXymPXOm1p7AuxgA0GYP/9PQLIg7hA=";
+    };
   };
   # Verify kernel version is supported
   assertKernelSupported =

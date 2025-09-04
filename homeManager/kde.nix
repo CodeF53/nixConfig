@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  programs.plasma = {
+  programs.plasma = { # https://nix-community.github.io/plasma-manager/options.xhtml
     enable = true;
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
