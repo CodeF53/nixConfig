@@ -5,6 +5,7 @@ extras@{ pkgs, ... }:
     extras.inputs.zen-browser.homeModules.beta
     extras.inputs.plasma-manager.homeModules.plasma-manager
     ./homeManager/dev.nix
+    ./homeManager/cli.nix
     ./homeManager/kde.nix
     ./homeManager/mpv.nix
     ./homeManager/font.nix
