@@ -19,10 +19,10 @@ in
     "asus_wmi_screenpad"
   ];
   boot.extraModulePackages = [ asusWmiScreenpad ];
-  # enable changing screenpad brightness without giving permission everytime after reboot  
-  services.udev.extraRules = ''  
-    ACTION=="add", SUBSYSTEM=="leds", KERNEL=="asus::screenpad", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/leds/%k/brightness"  
-  '';  
+  # enable changing screenpad brightness without giving permission everytime after reboot
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="leds", KERNEL=="asus::screenpad", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/leds/%k/brightness"
+  '';
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/b868d8c3-e35a-4ee9-b7fa-b01328420948";
