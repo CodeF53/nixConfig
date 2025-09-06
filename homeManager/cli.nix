@@ -28,6 +28,24 @@
     };
   };
 
+  xdg.desktopEntries.kitty = {
+    name = "kitty";
+    type = "Application";
+    genericName = "Terminal emulator";
+    exec = "${pkgs.kitty}/bin/.kitty-wrapped";
+    comment = "meow";
+    terminal = false; # as in it shouldn't be ran inside a terminal
+    categories = [
+      "System"
+      "TerminalEmulator"
+    ];
+    startupNotify = true; # it was in the original desktop entry, no clue what it's for
+    icon = (pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/sodapopcan/kitty-icon/70d0c7bc002fefd16b6d2d9becbc491d08033492/kitty.app.png";
+      hash = "sha256-5a56y8qzquZocPyWwadhkF+0fZ04Xaqr1z29QqE78LE=";
+    });
+  };
+
   programs.fish = {
     enable = true;
     preferAbbrs = false;
