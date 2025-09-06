@@ -4,6 +4,9 @@
   home.packages = with pkgs; [
     nixd
     nil
+    vscode
+    bun
+    nodejs_latest
   ];
 
   programs.git = {
