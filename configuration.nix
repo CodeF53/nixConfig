@@ -66,6 +66,7 @@
     wl-clipboard
     btop
     ncspot
+    syncplay
   ];
   
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
