@@ -31,6 +31,20 @@ let
       unpackPhase = ":";
       scriptPath = file;
     };
+  mpv-thumbnail-script-server = pkgs.mpvScripts.buildLua {
+    pname = "mpv-thumbnail-script-server";
+    version = "git";
+    src = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/Zren/mpv-osc-tethys/master/mpv_thumbnail_script_server.lua";
+      sha256 = "1xV/DmuOJCCWkQAPd8RIcL3M6tohUZlqcaTZYYAaPrk=";
+    };
+    unpackPhase = ":";
+    installPhase = ''
+      mkdir -p $out/share/mpv/scripts
+      cp $src $out/share/mpv/scripts/mpv_thumbnail_script_server.lua
+    '';
+    scriptPath = "share/mpv/scripts/mpv_thumbnail_script_server.lua";
+  };
 in
 {
   programs.mpv = {
@@ -78,6 +92,7 @@ in
       ++ [
         seek-end
         auto-sub
+        mpv-thumbnail-script-server
       ];
   };
 }
