@@ -64,7 +64,7 @@
     dolphin-emu
     opencode
     wl-clipboard
-    btop
+    btop-cuda
     ncspot
     syncplay
   ];

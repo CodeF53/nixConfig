@@ -1,7 +1,7 @@
 todo:
 - [x] kitty
 - [x] zoxide
-- [ ] syncplay
+- [x] syncplay
 - [ ] mpv
   - [x] add
   - [ ] personalize it (because I just stole from mochie <3)
@@ -11,9 +11,8 @@ todo:
   - [x] I have no idea what I have right now but it kinda half works
   - [x] proper laptop nvidia
   - [ ] add "dgpu" to desktop entry for zen
-- [ ] btop (gpu enabled)
-- [ ] btop monitor :3 (autostart btop on boot in minimal foot and position on specific monitor with desired windowrules)
-- [ ] spotify
+- [x] btop (gpu enabled)
+- [x] spotify (ncspot)
 - [ ] zen browser pinned tabs & color config (#202A46 to #491A4B)
 - [x] font config: [ Twemoji emoji, Nunito Sans sans-serif, Mochie Iosevka monospace ]
 - [ ] live captions
