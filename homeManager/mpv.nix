@@ -18,10 +18,10 @@ let
   seek-end =
     let
       file = builtins.toFile "seek-end.lua" ''
-        function seek_to_end_func()
-          mp.set_property("time-pos", mp.get_property_native("duration") - 5)
+        function seek_end()
+          mp.set_property("time-pos", mp.get_property_number("duration") - 5)
         end
-        mp.register_script_message("seek-end", seek_to_end_func)
+        mp.add_key_binding(nil, "seek_end", seek_end)
       '';
     in
     pkgs.mpvScripts.buildLua {
@@ -79,7 +79,7 @@ in
       WHEEL_DOWN = "add volume -2";
       j = "add chapter -1";
       l = "add chapter 1";
-      y = "script-message seek-end";
+      y = "script-binding seek_end";
       "`" = "script-binding console/enable";
     };
     scripts =
