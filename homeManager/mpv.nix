@@ -4,7 +4,7 @@ let
     let
       file = builtins.toFile "auto-sub.lua" ''
         mp.add_hook('on_load', 10, function ()
-           mp.set_property('sub-file-paths', 'Subs/' .. mp.get_property('filename/no-ext'))
+          mp.set_property('sub-file-paths', 'Subs/' .. mp.get_property('filename/no-ext'))
         end)
       '';
     in
@@ -18,10 +18,10 @@ let
   seek-end =
     let
       file = builtins.toFile "seek-end.lua" ''
-        function seek_end()
+        function seek_to_end_func()
           mp.set_property("time-pos", mp.get_property_native("duration") - 5)
         end
-        mp.add_key_binding("y", "seek_end", seek_end)
+        mp.register_script_message("seek-end", seek_to_end_func)
       '';
     in
     pkgs.mpvScripts.buildLua {
@@ -79,7 +79,7 @@ in
       WHEEL_DOWN = "add volume -2";
       j = "add chapter -1";
       l = "add chapter 1";
-      y = "script-binding seek-end";
+      y = "script-message seek-end";
       "`" = "script-binding console/enable";
     };
     scripts =
