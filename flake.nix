@@ -30,6 +30,16 @@
         };
         users.cassie = import ./home.nix;
       };
+
+      commonModules = [
+        ./configuration.nix
+        { imports = [ (import ./modules/enviroment-variables.nix { inherit inputs; }) ]; }
+        inputs.nix-flatpak.nixosModules.nix-flatpak
+        ./modules/flatpak.nix
+        ./modules/dev.nix
+        ./modules/gaming.nix
+        home-manager.nixosModules.home-manager
+      ];
     in
     {
       # laptop
@@ -41,33 +51,24 @@
         };
         modules = [
           ./hosts/cassietop/hardware-configuration.nix
-          ./configuration.nix
-          { imports = [ (import ./modules/enviroment-variables.nix { inherit inputs; }) ]; }
-          inputs.nix-flatpak.nixosModules.nix-flatpak
-          ./modules/flatpak.nix
-          ./modules/dev.nix
-          ./modules/gaming.nix
-          home-manager.nixosModules.home-manager
           { home-manager = homeConfig specialArgs.host; }
-        ];
+        ]
+        ++ commonModules;
       };
+
+      # desktop
       nixosConfigurations.cassiebox = nixpkgs.lib.nixosSystem rec {
         inherit system;
         specialArgs = {
-          host = "cassietop";
+          host = "cassiebox";
           inherit inputs;
         };
         modules = [
           ./hosts/cassiebox/hardware-configuration.nix
-          ./configuration.nix
-          { imports = [ (import ./modules/enviroment-variables.nix { inherit inputs; }) ]; }
-          inputs.nix-flatpak.nixosModules.nix-flatpak
-          ./modules/flatpak.nix
-          ./modules/dev.nix
-          ./modules/gaming.nix
-          home-manager.nixosModules.home-manager
+          ./hosts/cassiebox/nvidia.nix
           { home-manager = homeConfig specialArgs.host; }
-        ];
+        ]
+        ++ commonModules;
       };
     };
 }
