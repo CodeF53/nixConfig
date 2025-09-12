@@ -32,7 +32,12 @@
   };
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    discover kate gwenview okular elisa konsole
+    discover
+    kate
+    gwenview
+    okular
+    elisa
+    konsole
   ];
   environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
@@ -50,13 +55,19 @@
   users.users.cassie = {
     isNormalUser = true;
     description = "cassie";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.fish;
   };
   security.sudo.wheelNeedsPassword = false;
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   environment.systemPackages = with pkgs; [
     git
     micro
@@ -67,8 +78,16 @@
     btop-cuda
     ncspot
     syncplay
+    pkgs.nixfmt-rfc-style
+    (aspellWithDicts (
+      dicts: with dicts; [
+        en
+        en-computers
+        en-science
+      ]
+    ))
   ];
-  
+
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
   nix.settings = {
     trusted-users = [ "cassie" ];
@@ -78,13 +97,15 @@
     ];
     trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
   };
-  
+
   # ssh!
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
   };
-  users.users.cassie.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDUj/KeS2gfoq1D8X4jQYM+rCgx5+3ls7vTpb0/HVnI" ];
+  users.users.cassie.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDUj/KeS2gfoq1D8X4jQYM+rCgx5+3ls7vTpb0/HVnI"
+  ];
   networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
