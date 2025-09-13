@@ -70,7 +70,6 @@
   ];
   environment.systemPackages = with pkgs; [
     git
-    micro
     qbittorrent
     dolphin-emu
     opencode

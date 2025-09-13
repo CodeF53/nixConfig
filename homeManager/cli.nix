@@ -3,6 +3,10 @@ extras@{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     kitty
+    fzf
+    micro
+    bat
+    eza
   ];
 
   programs.kitty = {
@@ -41,10 +45,12 @@ extras@{ pkgs, ... }:
       "TerminalEmulator"
     ];
     startupNotify = true; # it was in the original desktop entry, no clue what it's for
-    icon = (pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/sodapopcan/kitty-icon/70d0c7bc002fefd16b6d2d9becbc491d08033492/kitty.app.png";
-      hash = "sha256-5a56y8qzquZocPyWwadhkF+0fZ04Xaqr1z29QqE78LE=";
-    });
+    icon = (
+      pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/sodapopcan/kitty-icon/70d0c7bc002fefd16b6d2d9becbc491d08033492/kitty.app.png";
+        hash = "sha256-5a56y8qzquZocPyWwadhkF+0fZ04Xaqr1z29QqE78LE=";
+      }
+    );
   };
 
   programs.fish = {
@@ -52,7 +58,13 @@ extras@{ pkgs, ... }:
     preferAbbrs = false;
     interactiveShellInit = ''
       set fish_greeting
+      if string match -q -e "kitty" $TERM; command hyfetch; end
+
       direnv hook fish | source
+
+      zoxide init fish --cmd cd | source
+      fzf --fish | source
+
       # bobthefish config
       set -g theme_nerd_fonts yes
       set -g theme_title_display_process yes
@@ -67,6 +79,8 @@ extras@{ pkgs, ... }:
     };
     shellAliases = {
       nano = "micro";
+      cat = "bat";
+      ls = "eza -1 -l -a -F --color=always --icons --no-permissions --no-user --no-time --no-filesize";
       sys-rebuild = "git -C ~/nixConfig add . && sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig#${extras.host}";
       sys-update = "nix flake update --flake ~/nixConfig && sys-rebuild";
     };
@@ -79,6 +93,41 @@ extras@{ pkgs, ... }:
         name = "bobthefish";
         src = bobthefish.src;
       }
+    ];
+  };
+
+  programs.hyfetch = {
+    enable = true;
+    settings = {
+      preset = "transgender";
+      mode = "rgb";
+      auto_detect_light_dark = true;
+      light_dark = "dark";
+      lightness = 0.65;
+      color_align.mode = "horizontal";
+      backend = "fastfetch";
+      pride_month_disable = false;
+    };
+  };
+  programs.fastfetch = {
+    enable = true;
+    settings.modules = [
+      "title"
+      "os"
+      "host"
+      "kernel"
+      "uptime"
+      "packages"
+      "shell"
+      "de"
+      "wm"
+      "font"
+      "terminalfont"
+      "terminal"
+      "cpu"
+      "gpu"
+      "memory"
+      "disk"
     ];
   };
 
