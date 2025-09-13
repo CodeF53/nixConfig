@@ -67,7 +67,7 @@ extras@{ pkgs, ... }:
     shellAliases = {
       nano = "micro";
       sys-rebuild = "git -C ~/nixConfig add . && sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig#${extras.host}";
-      sys-update = "nix flake update --flake ~/nixConfig#${extras.host} && sys-rebuild";
+      sys-update = "nix flake update --flake ~/nixConfig && sys-rebuild";
     };
     plugins = with pkgs.fishPlugins; [
       {
