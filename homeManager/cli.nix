@@ -74,7 +74,7 @@ extras@{ pkgs, ... }:
       nish.body = ''
         set -lx NIXPKGS_ALLOW_UNFREE 1
         set -l pkgs "github:NixOS/nixpkgs/nixos-unstable#"$argv
-        command nix shell --impure (string join " " $pkgs)
+        command nix shell --impure $pkgs
       '';
     };
     shellAliases = {
