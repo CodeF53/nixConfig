@@ -9,6 +9,7 @@ extras@{ pkgs, ... }:
     ./homeManager/kde.nix
     ./homeManager/mpv.nix
     ./homeManager/font.nix
+    ./homeManager/flameshot.nix
   ];
   programs.home-manager.enable = true;
 
