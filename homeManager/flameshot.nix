@@ -2,6 +2,7 @@
 
 {
   # flameshot must be launched with QT_QPA_PLATFORM=xcb to screenshot anything but the desktop, but this makes it not accept keyboard input
+  # https://github.com/flameshot-org/flameshot/issues/3269
   services.flameshot = {
     enable = true;
     settings.General = {
