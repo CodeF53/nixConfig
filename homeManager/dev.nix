@@ -50,6 +50,8 @@
         show_user_picture = false;
         show_sign_in = false;
       };
+      ui_font_family = "Nunito";
+      buffer_font_family = "Mochie Iosevka";
     };
   };
 }
