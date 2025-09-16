@@ -78,6 +78,7 @@
     btop-cuda
     ncspot
     syncplay
+    rar
     pkgs.nixfmt-rfc-style
     (aspellWithDicts (
       dicts: with dicts; [
