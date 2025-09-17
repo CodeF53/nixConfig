@@ -19,7 +19,7 @@ let
   kernelSources = {
     "asus-wmi.c" = fetchurl {
       url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/drivers/platform/x86/asus-wmi.c?h=linux-${kernelVersion}.y";
-      sha256 = "sha256-itRfuzJoI7hjWwxUP/1YiZYtxJ7r2CkQWJn8r0XWUhM=";
+      sha256 = "sha256-VxADtNNSB4Z/xF2DgTD40JtJ8drQPnGd8tfiJVga+So=";
     };
     "asus-wmi.h" = fetchurl {
       url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/drivers/platform/x86/asus-wmi.h?h=linux-${kernelVersion}.y";
@@ -27,7 +27,7 @@ let
     };
     "asus-nb-wmi.c" = fetchurl {
       url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/drivers/platform/x86/asus-nb-wmi.c?h=linux-${kernelVersion}.y";
-      sha256 = "sha256-4cSWqLWHhkl4xyXymPXOm1p7AuxgA0GYP/9PQLIg7hA=";
+      sha256 = "sha256-+lsg08J4WN9G5eX2j02s4OEWe+RYTkqHVXW4yEpXibI=";
     };
   };
 in
