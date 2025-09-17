@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   # flameshot must be launched with QT_QPA_PLATFORM=xcb to screenshot anything but the desktop, but this makes it not accept keyboard input
@@ -14,15 +14,5 @@
       userColors = "picker, #FF0000, #E700FF, #05AFFF, #00FF00";
     };
   };
-
-  programs.plasma = {
-    hotkeys.commands."screenshot" = {
-      name = "launch flameshot";
-      keys = [
-        "Meta+Shift+S"
-        "Print"
-      ];
-      command = "env QT_QPA_PLATFORM=xcb ${pkgs.flameshot}/bin/flameshot gui";
-    };
-  };
+  # hotkey assigned in homeManager/kde/shortcuts.nix
 }

@@ -4,9 +4,8 @@ extras@{ pkgs, ... }:
   imports = [
     extras.inputs.zen-browser.homeModules.beta
     extras.inputs.plasma-manager.homeModules.plasma-manager
-    ./homeManager/dev.nix
     ./homeManager/cli
-    ./homeManager/kde.nix
+    ./homeManager/kde
     ./homeManager/mpv.nix
     ./homeManager/font.nix
     ./homeManager/flameshot.nix
