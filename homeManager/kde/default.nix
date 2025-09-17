@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./btop-panel.nix
     ./misc.nix
     ./shortcuts.nix
     ./taskbar.nix

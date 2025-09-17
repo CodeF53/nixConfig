@@ -12,6 +12,7 @@ todo:
   - [x] proper laptop nvidia
   - [ ] add "dgpu" to desktop entry for zen
 - [x] btop (gpu enabled)
+- [x] btop monitor
 - [x] spotify (ncspot)
 - [ ] zen browser pinned tabs & color config (#202A46 to #491A4B)
 - [x] font config: [ Twemoji emoji, Nunito Sans sans-serif, Mochie Iosevka monospace ]
