@@ -3,6 +3,7 @@
 {
   imports = [
     ./btop-panel.nix
+    ./cursor.nix
     ./misc.nix
     ./shortcuts.nix
     ./taskbar.nix

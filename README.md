@@ -1,23 +1,9 @@
 todo:
-- [x] kitty
-- [x] zoxide
-- [x] syncplay
-- [ ] mpv
-  - [x] add
-  - [ ] personalize it (because I just stole from mochie <3)
-- [ ] qbittorrent config inside nixos (it doesnt have home manager so setting this up is a nightmare)
-  - [ ] just set torrent port in the horrors and put that port through a vpn? https://github.com/Maroka-chan/VPN-Confinement
-- [x] nvidia
-  - [x] I have no idea what I have right now but it kinda half works
-  - [x] proper laptop nvidia
-  - [ ] add "dgpu" to desktop entry for zen
+- [ ] some torrent software with config in nixos
+- [ ] add "dgpu" to desktop entry for zen
 - [x] btop (gpu enabled)
-- [x] btop monitor
-- [x] spotify (ncspot)
 - [ ] zen browser pinned tabs & color config (#202A46 to #491A4B)
-- [x] font config: [ Twemoji emoji, Nunito Sans sans-serif, Mochie Iosevka monospace ]
 - [ ] live captions
 - [ ] obs
 - [ ] scrcpy
 - [ ] signal
-- [ ] spectacle config

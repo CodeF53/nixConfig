@@ -73,13 +73,14 @@
     git
     qbittorrent
     dolphin-emu
-    opencode
+    # opencode
     wl-clipboard
     btop-cuda
     ncspot
     syncplay
     rar
     pkgs.nixfmt-rfc-style
+    protonup-rs
     (aspellWithDicts (
       dicts: with dicts; [
         en
