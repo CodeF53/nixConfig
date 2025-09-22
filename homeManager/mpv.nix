@@ -63,6 +63,10 @@ in
       # vo = "gpu-next";
       vulkan-swap-mode = "auto";
       gpu-context = "wayland";
+      # youtube!
+      ytdl-format = "bestvideo+bestaudio/best";
+      slang = "en";
+      ytdl-raw-options = "ignore-config=,sub-lang=en,write-sub=,write-auto-sub=";
     };
     bindings = {
       "]" = "add speed 0.5";

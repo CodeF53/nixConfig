@@ -1,6 +1,4 @@
 todo:
-- [ ] mpv yt-dlp settings
-- [ ] mpv yt subtitles
 - [ ] some torrent software with config in nixos
 - [ ] add "dgpu" to desktop entry for zen
 - [x] btop (gpu enabled)
