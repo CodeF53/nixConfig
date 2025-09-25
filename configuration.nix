@@ -73,7 +73,8 @@
     git
     qbittorrent
     dolphin-emu
-    # opencode
+    opencode
+    livecaptions
     wl-clipboard
     btop-cuda
     ncspot

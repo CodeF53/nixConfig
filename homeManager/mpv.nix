@@ -47,6 +47,8 @@ let
   };
 in
 {
+  home.packages = [ pkgs.yt-dlp ];
+
   programs.mpv = {
     enable = true;
     config = {
@@ -67,6 +69,7 @@ in
       ytdl-format = "bestvideo+bestaudio/best";
       slang = "en";
       ytdl-raw-options = "ignore-config=,sub-lang=en,write-sub=,write-auto-sub=";
+      script-opts="ytdl_hook-ytdl_path=/home/cassie/.nix-profile/bin/yt-dlp";
     };
     bindings = {
       "]" = "add speed 0.5";
