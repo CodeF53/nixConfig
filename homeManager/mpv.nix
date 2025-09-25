@@ -66,8 +66,8 @@ in
       # youtube!
       ytdl-format = "bestvideo+bestaudio/best";
       slang = "en";
-      ytdl-raw-options = "ignore-config=,sub-lang=en,write-sub=,write-auto-sub=";
-      script-opts="ytdl_hook-ytdl_path=/run/current-system/sw/bin/yt-dlp";
+      ytdl-raw-options = "ignore-config=,sub-lang=en,write-sub=,write-auto-sub=,embed-chapters=";
+      script-opts = "ytdl_hook-ytdl_path=/run/current-system/sw/bin/yt-dlp";
     };
     bindings = {
       "]" = "add speed 0.5";
@@ -91,8 +91,7 @@ in
       with pkgs.mpvScripts;
       [
         mpv-osc-tethys
-        thumbfast
-        # autosub
+        mpv-discord
       ]
       ++ [
         seek-end
