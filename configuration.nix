@@ -81,7 +81,6 @@
     syncplay
     rar
     pkgs.nixfmt-rfc-style
-    protonup-rs
     (aspellWithDicts (
       dicts: with dicts; [
         en

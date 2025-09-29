@@ -3,6 +3,8 @@
 {
   environment.systemPackages = with pkgs; [
     lutris
+    protonup-rs
+    prismlauncher
   ];
   programs.steam = {
     enable = true;
