@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   auto-sub =
     let
@@ -91,7 +91,7 @@ in
       with pkgs.mpvScripts;
       [
         mpv-osc-tethys
-        mpv-discord
+        # mpv-discord
       ]
       ++ [
         seek-end
