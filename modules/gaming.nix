@@ -1,10 +1,13 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     lutris
     protonup-rs
     prismlauncher
+    dolphin-emu
+    inputs.eden.packages.${pkgs.system}.default
+    sgdboop
   ];
   programs.steam = {
     enable = true;

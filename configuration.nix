@@ -72,7 +72,6 @@
   environment.systemPackages = with pkgs; [
     git
     qbittorrent
-    dolphin-emu
     opencode
     livecaptions
     wl-clipboard
