@@ -72,6 +72,7 @@
         modules = [
           ./hosts/cassiebox/hardware-configuration.nix
           ./hosts/cassiebox/nvidia.nix
+          ./hosts/cassiebox/swap.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
         ++ commonModules;
