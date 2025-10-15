@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     nixd
-    nil
     vscode
     bun
     nodejs_latest
@@ -45,6 +44,7 @@
           model = "gemini-2.5-flash";
         };
       };
+      features.edit_prediction_provider = "none";
       title_bar = {
         show_onboarding_banner = false;
         show_user_picture = false;

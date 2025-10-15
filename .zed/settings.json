@@ -1,0 +1,25 @@
+{
+  "languages": {
+    "Nix": {
+      "language_servers": ["nixd", "!nil"]
+    }
+  },
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "options": {
+          "home-manager": {
+            // (expr without plasma-manager) "(builtins.getFlake (toString /home/cassie/nixConfig)).nixosConfigurations.cassiebox.options.home-manager.users.type.getSubOptions []"
+            "expr": "let sysFlake = builtins.getFlake (toString /home/cassie/nixConfig); pkgs = sysFlake.inputs.nixpkgs.legacyPackages.x86_64-linux; in (sysFlake.inputs.home-manager.lib.homeManagerConfiguration { inherit pkgs; modules = [ sysFlake.inputs.plasma-manager.homeModules.plasma-manager { home = { stateVersion = \"25.05\"; username = \"cassie\"; homeDirectory = \"/home/cassie\"; }; } ]; }).options"
+          },
+          "nixos": {
+            "expr": "(builtins.getFlake (toString /home/cassie/nixConfig)).nixosConfigurations.cassiebox.options"
+          }
+        },
+        "nixpkgs": {
+          "expr": "import (builtins.getFlake \"/home/cassie/nixConfig\").inputs.nixpkgs { config.allowUnfree = true; }"
+        }
+      }
+    }
+  }
+}
