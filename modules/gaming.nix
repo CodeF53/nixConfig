@@ -7,15 +7,16 @@ let
   }) { inherit (pkgs) system; };
 in
 {
+  imports = [ inputs.eden.nixosModules.default ];
   environment.systemPackages = with pkgs; [
     lutris
     protonup-rs
     prismlauncher
     dolphin-emu
-    inputs.eden.packages.${pkgs.system}.default
     sgdboop
     beammp-nixpkgs.beammp-launcher
   ];
+  programs.eden.enable = true;
   programs.steam = {
     enable = true;
     extraCompatPackages = with pkgs; [ proton-ge-bin ];

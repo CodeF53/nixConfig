@@ -43,6 +43,7 @@
         ./modules/flatpak.nix
         ./modules/dev.nix
         ./modules/gaming.nix
+        ./modules/controller-nonsense.nix
         ./modules/yt-dlp.nix
         home-manager.nixosModules.home-manager
       ];
@@ -73,6 +74,7 @@
           ./hosts/cassiebox/hardware-configuration.nix
           ./hosts/cassiebox/nvidia.nix
           ./hosts/cassiebox/swap.nix
+          ./hosts/cassiebox/disable-motherboard-bluetooth.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
         ++ commonModules;
