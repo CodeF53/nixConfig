@@ -10,10 +10,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Cassie";
-    userEmail = "37855219+CodeF53@users.noreply.github.com";
-
-    extraConfig = {
+    settings = {
+      user.name = "Cassie";
+      user.email = "37855219+CodeF53@users.noreply.github.com";
       core.editor = "micro";
       init.defaultBranch = "main";
       color.ui = true;

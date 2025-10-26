@@ -21,7 +21,6 @@
       self,
       nixpkgs,
       home-manager,
-      eden,
       ...
     }@inputs:
     let

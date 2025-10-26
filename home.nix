@@ -1,15 +1,14 @@
-extras@{ pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    extras.inputs.zen-browser.homeModules.beta
-    extras.inputs.plasma-manager.homeModules.plasma-manager
     ./homeManager/cli
     ./homeManager/dev.nix
     ./homeManager/kde
     ./homeManager/mpv.nix
     ./homeManager/font.nix
     ./homeManager/flameshot.nix
+    ./homeManager/zen.nix
   ];
   programs.home-manager.enable = true;
 
@@ -33,8 +32,4 @@ extras@{ pkgs, ... }:
   };
   # note to self, ensure NoDevtoolsWarning is enabled if discord is logging you out constantly
   # https://github.com/Vencord/Vesktop/issues/375#issuecomment-1925395338
-
-  programs.zen-browser = {
-    enable = true;
-  };
 }

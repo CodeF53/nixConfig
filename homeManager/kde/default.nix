@@ -1,7 +1,8 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
+    inputs.plasma-manager.homeModules.plasma-manager
     ./btop-panel.nix
     ./cursor.nix
     ./misc.nix
