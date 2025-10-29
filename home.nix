@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -9,8 +9,14 @@
     ./homeManager/font.nix
     ./homeManager/flameshot.nix
     ./homeManager/zen.nix
+    inputs.rootchat.homeModules.default
   ];
   programs.home-manager.enable = true;
+  
+  programs.rootchat = {
+    enable = true;
+    shaHash = "sha256-qHJYsxtpn72KYxMdXEbIiBEBWarTZEZFAO86ifCyCiw=";
+  };
 
   home = {
     username = "cassie";
@@ -28,7 +34,11 @@
     exec = "${pkgs.equibop}/bin/equibop";
     icon = "${pkgs.equibop}/share/icons/hicolor/1024x1024/apps/equibop.png";
     comment = "Internet Messenger";
-    categories = [ "Network" "InstantMessaging" "Chat" ];
+    categories = [
+      "Network"
+      "InstantMessaging"
+      "Chat"
+    ];
   };
   # note to self, ensure NoDevtoolsWarning is enabled if discord is logging you out constantly
   # https://github.com/Vencord/Vesktop/issues/375#issuecomment-1925395338

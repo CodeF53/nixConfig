@@ -1,24 +1,22 @@
 { inputs, pkgs, ... }:
 
-let
-  beammp-nixpkgs = import (builtins.fetchTarball {
-    url = "https://github.com/Andy3153/nixpkgs/archive/5ff896c0dd8a558da5bffbe0c16bc7d6a8a0747d.tar.gz";
-    sha256 = "sha256:1a3k1v1xgp3yqxl7bjb03qpiirywsm54d9n2srfd14i5p0m70bkd";
-  }) { inherit (pkgs) system; };
-in
 {
   imports = [ inputs.eden.nixosModules.default ];
   environment.systemPackages = with pkgs; [
     lutris
+    protontricks
     protonup-rs
     prismlauncher
     dolphin-emu
     sgdboop
-    beammp-nixpkgs.beammp-launcher
+    # beammp-launcher
   ];
-  programs.eden.enable = true;
+  programs.eden.enable = false;
   programs.steam = {
     enable = true;
+    extraPackages = with pkgs; [
+      nss
+    ];
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
   programs.gamemode.enable = true;

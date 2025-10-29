@@ -14,11 +14,14 @@
       url = "github:grantimatter/eden-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    rootchat = {
+      url = "github:CodeF53/rootchat-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       ...
