@@ -30,8 +30,10 @@ extras@{ pkgs, ... }:
       nano = "micro";
       cat = "bat";
       ls = "eza -1 -l -a -F --color=always --icons --no-permissions --no-user --no-time --no-filesize";
-      sys-rebuild = "git -C ~/nixConfig add . && sudo nixos-rebuild switch --max-jobs auto --cores 16 --flake ~/nixConfig#${extras.host}";
-      sys-update = "nix flake update --flake ~/nixConfig && sys-rebuild";
+      sys-rebuild = "nh os switch ~/nixConfig --hostname ${extras.host}";
+      sys-update = "nh os switch --update ~/nixConfig --hostname ${extras.host}";
+      sys-update-shutdown = "nh os boot --update ~/nixConfig --hostname ${extras.host} && sudo shutdown now";
+      sys-clean = "nh clean all";
     };
     plugins = with pkgs.fishPlugins; [
       {

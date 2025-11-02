@@ -15,6 +15,7 @@
     lazygit
     fd
     ripgrep
+    nh
   ];
 
   programs.zoxide = {
