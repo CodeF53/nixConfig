@@ -9,13 +9,14 @@
     prismlauncher
     dolphin-emu
     sgdboop
-    # beammp-launcher
+    beammp-launcher
   ];
-  programs.eden.enable = false;
+  programs.eden.enable = true;
   programs.steam = {
     enable = true;
     extraPackages = with pkgs; [
       nss
+      curl
     ];
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
   };
