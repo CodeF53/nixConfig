@@ -40,7 +40,7 @@
     profiles.default = {
       isDefault = true;
       userChrome = ''
-        #zen-current-workspace-indicator-container { display: none }
+        .zen-current-workspace-indicator { display: none !important; }
       '';
 
       containersForce = false;

@@ -20,6 +20,7 @@
       core.editor = "micro";
       init.defaultBranch = "main";
       color.ui = true;
+      submodule.recurse = true;
     };
   };
 

@@ -4,12 +4,14 @@
   # https://nix-community.github.io/plasma-manager/options.xhtml
   programs.plasma.hotkeys.commands = {
     screenshot = {
-      name = "launch flameshot";
+      name = "launch spectacle";
       keys = [
         "Meta+Shift+S"
         "Print"
       ];
-      command = "env QT_QPA_PLATFORM=xcb ${pkgs.flameshot}/bin/flameshot gui";
+      command = "${pkgs.writeShellScript "screenshot.sh" ''
+        ${pkgs.kdePackages.spectacle}/bin/spectacle --region --pointer --nonotify --background -o /dev/stdout | ${pkgs.gradia}/bin/gradia
+      ''}";
     };
     # toggleScreenPad = {
     #   key = "XF86Launch7";

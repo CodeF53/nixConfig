@@ -7,7 +7,6 @@
     ./homeManager/kde
     ./homeManager/mpv.nix
     ./homeManager/font.nix
-    ./homeManager/flameshot.nix
     ./homeManager/zen.nix
     inputs.rootchat.homeModules.default
   ];
@@ -15,7 +14,7 @@
   
   programs.rootchat = {
     enable = true;
-    shaHash = "sha256-qHJYsxtpn72KYxMdXEbIiBEBWarTZEZFAO86ifCyCiw=";
+    shaHash = "sha256-XJaref8NOWtr8QzK7nobRDp3k1pAKVdeU3LVe1GdjCI=";
   };
 
   home = {

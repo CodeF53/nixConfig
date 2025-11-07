@@ -3,13 +3,14 @@
 {
   imports = [ inputs.eden.nixosModules.default ];
   environment.systemPackages = with pkgs; [
-    lutris
+    # lutris
     protontricks
     protonup-rs
     prismlauncher
     dolphin-emu
     sgdboop
     beammp-launcher
+    r2modman
   ];
   programs.eden.enable = true;
   programs.steam = {
