@@ -23,10 +23,6 @@
     stateVersion = "25.05";
   };
 
-  home.packages = with pkgs; [
-    qbittorrent
-  ];
-
   # fix equibop's desktop entry not having a fucking icon
   xdg.desktopEntries.equibop = {
     name = "Equibop";

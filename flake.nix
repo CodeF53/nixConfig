@@ -40,7 +40,7 @@
 
       commonModules = [
         ./configuration.nix
-        { imports = [ (import ./modules/environment-variables.nix { inherit inputs; }) ]; }
+        ./modules/environment-variables.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
         ./modules/flatpak.nix
         ./modules/dev.nix

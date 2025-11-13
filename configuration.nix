@@ -78,6 +78,7 @@
     ncspot
     syncplay
     rar
+    gradia
     pkgs.nixfmt-rfc-style
     (aspellWithDicts (
       dicts: with dicts; [
