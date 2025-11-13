@@ -71,11 +71,10 @@
   environment.systemPackages = with pkgs; [
     git
     qbittorrent
+    signal-desktop
     opencode
     livecaptions
     wl-clipboard
-    btop-cuda
-    ncspot
     syncplay
     rar
     gradia
