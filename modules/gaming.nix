@@ -4,7 +4,6 @@
   imports = [ inputs.eden.nixosModules.default ];
   environment.systemPackages = with pkgs; [
     # lutris
-    protontricks
     protonup-rs
     prismlauncher
     dolphin-emu
@@ -20,6 +19,11 @@
       curl
     ];
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    gamescopeSession.enable = true;
+    protontricks.enable = true;
   };
   programs.gamemode.enable = true;
 
