@@ -40,6 +40,7 @@
 
       commonModules = [
         ./configuration.nix
+        ./modules/wayland-session.nix
         ./modules/environment-variables.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
         ./modules/flatpak.nix

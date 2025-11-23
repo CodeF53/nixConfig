@@ -24,12 +24,6 @@
   time.timeZone = "America/Denver";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.displayManager = {
-    sddm.enable = true;
-    autoLogin.enable = true;
-    autoLogin.user = "cassie";
-    defaultSession = "plasma";
-  };
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     discover
