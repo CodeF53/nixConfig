@@ -27,7 +27,7 @@
     enable = true;
     package = pkgs.btop-cuda;
     settings = {
-      shown_boxes = "proc cpu mem net gpu0";
+      shown_boxes = "proc cpu mem net";
       update_ms = 1000;
       proc_sorting = "cpu direct";
       show_disks = false;
