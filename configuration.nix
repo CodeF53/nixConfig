@@ -3,8 +3,18 @@
 {
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 5;
+    systemd-boot.enable = false;
+    grub = {
+      enable = true;
+      useOSProber = true;
+      efiSupport = true;
+      device = "nodev";
+      memtest86.enable = true;
+      theme = pkgs.sleek-grub-theme.override {
+        withStyle = "dark";
+        withBanner = "meowww :3";
+      };
+    };
     efi.canTouchEfiVariables = true;
   };
   nix.settings.auto-optimise-store = true;
