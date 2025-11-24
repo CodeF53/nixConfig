@@ -1,7 +1,6 @@
 {
   lib,
   stdenv,
-  fetchzip,
   fetchurl,
   kernel,
 }:
@@ -23,11 +22,11 @@ let
     };
     "asus-wmi.h" = fetchurl {
       url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/drivers/platform/x86/asus-wmi.h?h=linux-${kernelVersion}.y";
-      sha256 = "sha256-WcTmzV8SvlmYUAbdnk/3CMu+VAH9Qy05FUowblbFLu8=";
+      sha256 = "sha256-LSGQ+zjPf+WV7c8UVngvwTUvM/GEpIieg97echkippU=";
     };
     "asus-nb-wmi.c" = fetchurl {
       url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/plain/drivers/platform/x86/asus-nb-wmi.c?h=linux-${kernelVersion}.y";
-      sha256 = "sha256-+lsg08J4WN9G5eX2j02s4OEWe+RYTkqHVXW4yEpXibI=";
+      sha256 = "sha256-SCwF54jdN1zFLpIvOuJq8HkFxoAjwX6dle/eMQmnfms=";
     };
   };
 in
@@ -35,21 +34,20 @@ stdenv.mkDerivation {
   pname = "asus-wmi-screenpad";
   version = "1.0";
 
-  src = fetchzip {
-    url = "https://github.com/joyfulcat/asus-wmi-screenpad/archive/master.zip";
-    sha256 = "sha256-CN7+48EfKWJv1XP2Zq8JK+vULAxxji4fq7PaNfFL3MI=";
-  };
+  unpackPhase = ''
+    mkdir -p source
+    cd source
+    cp ${kernelSources."asus-wmi.c"} asus-wmi.c
+    cp ${kernelSources."asus-nb-wmi.c"} asus-nb-wmi.c
+    cp ${kernelSources."asus-wmi.h"} asus-wmi.h
+    echo "obj-m += asus-wmi.o asus-nb-wmi.o" > Makefile
+    sourceRoot=.
+  '';
 
   nativeBuildInputs = [ kernel ];
 
-  postUnpack = ''
-    cp ${kernelSources."asus-wmi.c"} $sourceRoot/asus-wmi.c
-    cp ${kernelSources."asus-wmi.h"} $sourceRoot/asus-wmi.h
-    cp ${kernelSources."asus-nb-wmi.c"} $sourceRoot/asus-nb-wmi.c
-  '';
-
   patchPhase = ''
-    patch -p1 < "patch6.11"
+    patch -p1 < "${./screenpad-patch6.17}"
   '';
 
   buildPhase = ''
