@@ -33,20 +33,4 @@
       show_disks = false;
     };
   };
-
-  # fix equibop's desktop entry not having a fucking icon
-  xdg.desktopEntries.equibop = {
-    name = "Equibop";
-    exec = "${pkgs.equibop}/bin/equibop";
-    icon = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/Equicord/Equibop/refs/heads/main/static/icon.png";
-      sha256 = "sha256:1clpay2rbasy56zizy9f5hnrc8bg0asb6sv9gc6aygjs9n0fmklj";
-    };
-    comment = "Internet Messenger";
-    categories = [
-      "Network"
-      "InstantMessaging"
-      "Chat"
-    ];
-  };
 }

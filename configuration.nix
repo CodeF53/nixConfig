@@ -73,6 +73,8 @@
     "flakes"
   ];
   environment.systemPackages = with pkgs; [
+    (discord.override { withEquicord = true; withOpenASAR = true; withTTS = false; }) # consider switching to declaritavely defining plugins https://github.com/KaylorBen/nixcord
+    equibop # for developing plugins
     git
     qbittorrent
     signal-desktop

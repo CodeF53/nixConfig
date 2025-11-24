@@ -9,9 +9,9 @@ let
 in
 {
   programs.plasma.startup.startupScript = {
-    equibop = {
+    discord = {
       priority = 2;
-      text = "${pkgs.equibop}/bin/equibop --start-minimized & disown";
+      text = "${(pkgs.discord.override { withEquicord = true; })}/bin/discord --start-minimized & disown";
       runAlways = true;
     };
     qbittorrent = {
