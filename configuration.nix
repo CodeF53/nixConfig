@@ -73,8 +73,20 @@
     "flakes"
   ];
   environment.systemPackages = with pkgs; [
-    (discord.override { withEquicord = true; withOpenASAR = true; withTTS = false; }) # consider switching to declaritavely defining plugins https://github.com/KaylorBen/nixcord
+    (
+      (pkgs.discord.override (old: {
+        withOpenASAR = true;
+        withEquicord = true;
+        withTTS = false;
+      })).overrideAttrs
+      (old: {
+        postInstall = old.postInstall + ''
+          echo 'require ("/home/cassie/proj/Equicord/dist/desktop/patcher.js")' > $out/opt/Discord/resources/app.asar/index.js
+        '';
+      })
+    ) # consider switching to declaritavely defining plugins https://github.com/KaylorBen/nixcord
     equibop # for developing plugins
+    pnpm
     git
     qbittorrent
     signal-desktop
