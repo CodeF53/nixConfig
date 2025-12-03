@@ -5,7 +5,10 @@
   environment.systemPackages = with pkgs; [
     lutris
     protonup-rs
-    prismlauncher
+    (prismlauncher.override {
+      additionalLibs = [ ocl-icd khronos-ocl-icd-loader ];
+      jdks = [ openjdk25 ];
+    })
     dolphin-emu
     sgdboop
     beammp-launcher
@@ -25,10 +28,6 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     protontricks.enable = true;
-    gamescopeSession.enable = true;
-    package = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [ libkrb5 keyutils ];	
-    };
   };
   programs.gamescope = {
     enable = true;
