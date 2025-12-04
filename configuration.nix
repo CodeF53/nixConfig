@@ -10,10 +10,6 @@
       efiSupport = true;
       device = "nodev";
       memtest86.enable = true;
-      theme = pkgs.sleek-grub-theme.override {
-        withStyle = "dark";
-        withBanner = "meowww :3";
-      };
     };
     efi.canTouchEfiVariables = true;
   };

@@ -3,10 +3,6 @@
 {
   programs.kitty = {
     enable = true;
-    font = {
-      name = "Mochie Iosevka";
-      size = 10;
-    };
     settings = {
       confirm_os_window_close = 0; # no close warning
       wayland_titlebar_color = "background";

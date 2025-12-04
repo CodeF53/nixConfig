@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.plasma-manager.homeModules.plasma-manager
-    ./cursor.nix
     ./misc.nix
     ./shortcuts.nix
     ./startup.nix

@@ -6,7 +6,6 @@
     ./homeManager/dev.nix
     ./homeManager/kde
     ./homeManager/mpv.nix
-    ./homeManager/font.nix
     ./homeManager/zen.nix
     inputs.rootchat.homeModules.default
   ];

@@ -32,7 +32,6 @@
     extensions = [
       "nix"
       "toml"
-      "vscode-dark-polished"
     ];
     userSettings = {
       languages.Nix.language_servers = [
@@ -52,6 +51,7 @@
               (${myFlake}.inputs.home-manager.lib.homeManagerConfiguration {
                 pkgs = ${myFlake}.inputs.nixpkgs.legacyPackages.x86_64-linux;
                 modules = [
+                  ${myFlake}.inputs.stylix.nixosModules.default
                   ${myFlake}.inputs.zen-browser.homeModules.default
                   ${myFlake}.inputs.plasma-manager.homeModules.plasma-manager {
                     home = {
@@ -65,13 +65,9 @@
             '';
           };
         };
+      load_direnv = "shell_hook";
 
       terminal.shell.program = "fish";
-      theme = {
-        mode = "dark";
-        dark = "VSCode Dark Polished";
-        light = "One Light"; # have to specify something otherwise it just doesnt work...
-      };
       autosave.after_delay.milliseconds = 500;
       agent = {
         default_profile = "ask";

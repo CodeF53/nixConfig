@@ -18,12 +18,17 @@
       url = "github:CodeF53/rootchat-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
+      stylix,
       ...
     }@inputs:
     let
@@ -39,8 +44,10 @@
       };
 
       commonModules = [
+        stylix.nixosModules.stylix
         ./configuration.nix
         ./modules/wayland-session.nix
+        ./modules/theme.nix
         ./modules/environment-variables.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
         ./modules/flatpak.nix
@@ -78,6 +85,7 @@
           ./hosts/cassiebox/nvidia.nix
           ./hosts/cassiebox/swap.nix
           ./hosts/cassiebox/disable-motherboard-bluetooth.nix
+          ./hosts/cassiebox/disable-useless-audio.nix
           ./hosts/cassiebox/fix-brightness-control.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
