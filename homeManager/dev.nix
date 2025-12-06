@@ -26,14 +26,19 @@
 
   programs.direnv.enable = true;
 
+  stylix.targets.zed.enable = false;
   programs.zed-editor = {
     enable = true;
     extraPackages = [ pkgs.nixd ];
     extensions = [
       "nix"
       "toml"
+      "catppuccin"
+      "catppuccin-icons"
     ];
     userSettings = {
+      theme = "Catppuccin Mocha";
+      icon_theme = "Catppuccin Mocha";
       languages.Nix.language_servers = [
         "nixd"
         "!nil"
@@ -53,13 +58,6 @@
                 modules = [
                   ${myFlake}.inputs.stylix.nixosModules.default
                   ${myFlake}.inputs.zen-browser.homeModules.default
-                  ${myFlake}.inputs.plasma-manager.homeModules.plasma-manager {
-                    home = {
-                      stateVersion = "${config.home.stateVersion}";
-                      username = "${config.home.username}";
-                      homeDirectory = "${config.home.homeDirectory}";
-                    };
-                  }
                 ];
               }).options
             '';

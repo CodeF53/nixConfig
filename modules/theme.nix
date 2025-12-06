@@ -42,6 +42,8 @@ in
       name = "Twitter Color Emoji";
       package = pkgs.twitter-color-emoji;
     };
+
+    sizes.terminal = 10;
   };
 
   stylix.cursor = {
