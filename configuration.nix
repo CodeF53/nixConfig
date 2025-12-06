@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   boot.loader = {
     systemd-boot.enable = false;
     grub = {
@@ -30,15 +30,6 @@
   time.timeZone = "America/Denver";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    discover
-    kate
-    gwenview
-    okular
-    elisa
-    konsole
-  ];
   environment.sessionVariables.NIXOS_OZONE_WL = 1;
 
   services.printing.enable = true;

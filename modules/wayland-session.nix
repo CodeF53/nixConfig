@@ -1,5 +1,3 @@
-
-
 { pkgs, ... }:
 
 # let
@@ -38,10 +36,10 @@
   programs.uwsm = {
     enable = true;
     waylandCompositors = {
-      plasma = {
-        prettyName = "KDE Plasma";
-        comment = "graphical desktop";
-        binPath = "/run/current-system/sw/bin/startplasma-wayland";
+      hyprland = {
+        prettyName = "Hyprland";
+        comment = "literal fire";
+        binPath = "${pkgs.hyprland}/bin/hyprland";
       };
       # gamescopeSteam = {
       #   prettyName = "Gamescoped Steam";

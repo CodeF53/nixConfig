@@ -4,9 +4,9 @@
   imports = [
     ./homeManager/cli
     ./homeManager/dev.nix
-    ./homeManager/kde
     ./homeManager/mpv.nix
     ./homeManager/zen.nix
+    ./homeManager/notifications.nix
     inputs.rootchat.homeModules.default
   ];
   programs.home-manager.enable = true;

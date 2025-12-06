@@ -8,7 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    plasma-manager.url = "github:nix-community/plasma-manager";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     eden = {
       url = "github:grantimatter/eden-flake";
@@ -47,6 +46,7 @@
         stylix.nixosModules.stylix
         ./configuration.nix
         ./modules/wayland-session.nix
+        ./modules/hyprland.nix
         ./modules/theme.nix
         ./modules/environment-variables.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
