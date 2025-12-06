@@ -5,6 +5,7 @@
     ./fetch.nix
     ./fish.nix
     ./kitty.nix
+    ./yazi.nix
   ];
 
   home.packages = with pkgs; [
