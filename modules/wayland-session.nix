@@ -39,7 +39,7 @@
       hyprland = {
         prettyName = "Hyprland";
         comment = "literal fire";
-        binPath = "${pkgs.hyprland}/bin/hyprland";
+        binPath = "${pkgs.hyprland}/bin/start-hyprland";
       };
       # gamescopeSteam = {
       #   prettyName = "Gamescoped Steam";
