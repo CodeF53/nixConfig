@@ -19,7 +19,7 @@
 
   programs.rootchat = {
     enable = true;
-    shaHash = "sha256-hg26LvlGlEjmn4oDbVs1MZEzYUSpd9M5W0PfPsxQQHQ";
+    shaHash = "sha256-F4DyFbeSFNAqchMldbPllGWt0kCsg+xBnGrMKA8N8MM=";
   };
 
   programs.btop = {
