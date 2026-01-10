@@ -75,6 +75,7 @@
     equibop # for developing plugins
     pnpm
     git
+    pwvucontrol
     qbittorrent
     signal-desktop
     opencode

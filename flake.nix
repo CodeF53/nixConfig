@@ -85,7 +85,7 @@
           ./hosts/cassiebox/nvidia.nix
           ./hosts/cassiebox/swap.nix
           ./hosts/cassiebox/disable-motherboard-bluetooth.nix
-          ./hosts/cassiebox/disable-useless-audio.nix
+          ./hosts/cassiebox/audio.nix
           ./hosts/cassiebox/fix-brightness-control.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
