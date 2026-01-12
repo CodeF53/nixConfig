@@ -36,11 +36,7 @@
   programs.uwsm = {
     enable = true;
     waylandCompositors = {
-      hyprland = {
-        prettyName = "Hyprland";
-        comment = "literal fire";
-        binPath = "${pkgs.hyprland}/bin/start-hyprland";
-      };
+      # hyprland is implicitly added to uwsm list
       # gamescopeSteam = {
       #   prettyName = "Gamescoped Steam";
       #   comment = "like a steam deck";
