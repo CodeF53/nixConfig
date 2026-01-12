@@ -75,7 +75,9 @@
     equibop # for developing plugins
     pnpm
     git
+    footswitch # https://amazon.com/dp/B08MC4PFHY/
     pwvucontrol
+    croc
     qbittorrent
     signal-desktop
     opencode
@@ -83,15 +85,7 @@
     wl-clipboard
     syncplay
     rar
-    gradia
-    pkgs.nixfmt-rfc-style
-    (aspellWithDicts (
-      dicts: with dicts; [
-        en
-        en-computers
-        en-science
-      ]
-    ))
+    nixfmt-rfc-style
   ];
 
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
