@@ -10,7 +10,7 @@
       jdks = [ openjdk25 ];
     })
     dolphin-emu
-    sgdboop
+    # sgdboop
     beammp-launcher
     r2modman
     mangohud

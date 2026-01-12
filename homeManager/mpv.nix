@@ -90,7 +90,7 @@ in
     scripts =
       with pkgs.mpvScripts;
       [
-        mpv-osc-tethys
+        # mpv-osc-tethys
         # mpv-discord
       ]
       ++ [
