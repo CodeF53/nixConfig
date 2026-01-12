@@ -29,6 +29,11 @@
   stylix.targets.zed.enable = false;
   programs.zed-editor = {
     enable = true;
+    package = (pkgs.zed-editor.override {
+      buildRemoteServer = false;
+    }).overrideAttrs {
+      doCheck = false;
+    };
     extraPackages = [ pkgs.nixd ];
     extensions = [
       "nix"
