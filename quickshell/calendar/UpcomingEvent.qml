@@ -4,6 +4,11 @@ import Quickshell.Io
 Rectangle {
     id: calendarWidget
     property var upcomingEvents: []
+    readonly property var currentEvent: {
+        if (calendarWidget.upcomingEvents instanceof Error)
+            return calendarWidget.upcomingEvents
+        return calendarWidget.upcomingEvents.find(event => Date.now() < event.endMs)
+    } 
     
     Process {
         id: fetchEvents
@@ -16,6 +21,7 @@ Rectangle {
                 if (stdout === '') return
                 try {
                     calendarWidget.upcomingEvents = JSON.parse(stdout)
+                    console.log(JSON.stringify(calendarWidget.upcomingEvents, null, 2))
                 } catch (e) {
                     console.error(e)
                     calendarWidget.upcomingEvents = e
@@ -44,13 +50,11 @@ Rectangle {
         running: true
         repeat: true
         onTriggered: {
-            if (calendarWidget.upcomingEvents instanceof Error) {
-                eventTitle.text = calendarWidget.upcomingEvents.toString()
+            const event = calendarWidget.currentEvent
+            if (event instanceof Error) {
+                eventTitle.text = event.toString()
                 return
             }
-            
-            const now = Date.now()
-            const event = calendarWidget.upcomingEvents.find(event => now < event.endMs)
             if (event === undefined) {
                 eventTitle.text = "No events"
                 eventTiming.text = ""
@@ -58,6 +62,7 @@ Rectangle {
             }
             eventTitle.text = event.title ?? "No Title"
             
+            const now = Date.now()
             const eventStarted = event.startMs <= now
             const ms = (eventStarted ? event.endMs : event.startMs) - now
             eventTiming.setText({ ms, eventStarted }) 
@@ -92,6 +97,19 @@ Rectangle {
                 const time = (h ? h + 'hr' : '') + (m ? m + 'm' : '') || Math.floor(ms / 1e3) + 's'
                 
                 this.text = `(${eventStarted ? 'ends in' : 'in'} ${time})`
+            }
+        }
+    }
+    
+    Process { id: linkOpener }
+    MouseArea { 
+        cursorShape: Qt.PointingHandCursor
+        anchors.fill: parent
+        onPressed: {
+            const event = calendarWidget.currentEvent
+            if (event !== undefined && !(event instanceof Error)) {
+                linkOpener.command = ["xdg-open", event.link]
+                linkOpener.running = true
             }
         }
     }
