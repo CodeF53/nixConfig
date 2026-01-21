@@ -3,8 +3,10 @@ import Quickshell
 import QtQuick
 import qs.tray
 import qs.calendar
+import qs.power
 
 PanelWindow {
+    id: root
     anchors {
         top: true
         left: true
@@ -20,11 +22,12 @@ PanelWindow {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         height: barLeftRow.implicitHeight
-        width: barRightRow.implicitWidth
+        width: barLeftRow.implicitWidth
         Row {
             id: barLeftRow
             spacing: 4
             padding: 2
+            Power {}
             Clock {}
             UpcomingEvent {}
         }
