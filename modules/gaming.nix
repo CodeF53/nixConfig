@@ -11,7 +11,6 @@
     })
     dolphin-emu
     # sgdboop
-    beammp-launcher
     r2modman
     mangohud
   ];
@@ -35,16 +34,4 @@
   };
 
   programs.gamemode.enable = true;
-
-  # beammp has broken certs...
-  security.pki.certificateFiles = [
-    (pkgs.stdenvNoCC.mkDerivation {
-      name = "beammp-cert";
-      nativeBuildInputs = [ pkgs.curl ];
-      builder = (
-        pkgs.writeScript "beammp-cert-builder" "curl -w %{certs} https://auth.beammp.com/userlogin -k > $out"
-      );
-      outputHash = "sha256-IjPAWvD57XCoCqJ7cq5/Jr2w4Y17iFW7ws6/xMpDLBU=";
-    })
-  ];
 }

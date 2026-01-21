@@ -53,6 +53,7 @@
         ./modules/flatpak.nix
         ./modules/dev.nix
         ./modules/gaming.nix
+        ./modules/beamng.nix
         ./modules/controller-nonsense.nix
         ./modules/yt-dlp.nix
         home-manager.nixosModules.home-manager
