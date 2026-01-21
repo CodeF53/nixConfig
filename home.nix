@@ -6,7 +6,6 @@
     ./homeManager/dev.nix
     ./homeManager/mpv.nix
     ./homeManager/zen.nix
-    ./homeManager/notifications.nix
     inputs.rootchat.homeModules.default
   ];
   programs.home-manager.enable = true;

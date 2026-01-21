@@ -4,6 +4,7 @@ import QtQuick
 import qs.tray
 import qs.calendar
 import qs.power
+import qs.notification
 
 PanelWindow {
     id: root
@@ -43,6 +44,7 @@ PanelWindow {
             spacing: 4
             padding: 2
             Tray {}
+            NotificationTray {}
         }
     }
 }
