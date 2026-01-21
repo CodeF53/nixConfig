@@ -6,6 +6,7 @@ MouseArea {
     id: trayItem
     required property SystemTrayItem modelData
     
+    cursorShape: Qt.PointingHandCursor
     acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
     onClicked: e => {
         switch (e.button) {
@@ -20,6 +21,10 @@ MouseArea {
     Image {
         anchors.centerIn: parent
         anchors.fill: parent
+        sourceSize {
+            width: 16
+            height: 16
+        }
         source: {
             const icon = parent.modelData.icon
             if (!icon.includes("?path=")) return icon
