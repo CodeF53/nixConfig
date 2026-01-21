@@ -18,10 +18,11 @@ Rectangle {
             width: Math.min(notificationCore.implicitHeight, 48)
             visible: notification.modelData.image !== ''
             source: {
-                const icon = notification.modelData.image
-                if (!icon.includes("?path=")) return icon
-                const [name, path] = icon.split("?path=")
-                return `file://${path}/${name.slice(name.lastIndexOf("/") + 1)}`
+                const icon = notification.modelData.image;
+                if (!icon.includes("?path="))
+                    return icon;
+                const [name, path] = icon.split("?path=");
+                return `file://${path}/${name.slice(name.lastIndexOf("/") + 1)}`;
             }
         }
         Column {
@@ -39,7 +40,7 @@ Rectangle {
             }
             Row {
                 spacing: 4
-                Repeater { 
+                Repeater {
                     model: notification.modelData.actions
                     MouseArea {
                         required property NotificationAction modelData
