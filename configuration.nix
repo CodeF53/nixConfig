@@ -85,7 +85,7 @@
     wl-clipboard
     syncplay
     rar
-    nixfmt-rfc-style
+    nixfmt
   ];
 
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
@@ -118,6 +118,15 @@
       };
     };
   };
+
+  # puppy leave a treat in return sometimes :3
+  nixpkgs.overlays = [
+    (final: prev: {
+      ouch = prev.ouch.override {
+        enableUnfree = true;
+      };
+    })
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
