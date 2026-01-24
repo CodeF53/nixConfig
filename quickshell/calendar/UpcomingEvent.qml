@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Io
+import Quickshell
 
 Rectangle {
     id: calendarWidget
@@ -109,18 +110,13 @@ Rectangle {
         }
     }
 
-    Process {
-        id: linkOpener
-    }
     MouseArea {
-        cursorShape: Qt.PointingHandCursor
+        readonly property bool eventShown: calendarWidget.currentEvent !== undefined && !(calendarWidget.currentEvent instanceof Error)
+        cursorShape: eventShown ? Qt.PointingHandCursor : Qt.ArrowCursor
         anchors.fill: parent
         onPressed: {
-            const event = calendarWidget.currentEvent;
-            if (event !== undefined && !(event instanceof Error)) {
-                linkOpener.command = ["xdg-open", event.link];
-                linkOpener.running = true;
-            }
+            if (this.eventShown)
+                Quickshell.execDetached(["xdg-open", calendarWidget.currentEvent.link])
         }
     }
 }
