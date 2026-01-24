@@ -7,9 +7,10 @@
   boot.kernelParams = [ "NVreg_EnableBacklightHandler=0" ];
 
   hardware.i2c.enable = true;
-  environment.systemPackages = with pkgs; [
-    ddcutil
-  ];
+  environment.systemPackages = [ pkgs.ddcutil ];
   services.udev.packages = [ pkgs.ddcutil ];
-  users.users.cassie.extraGroups = [ "i2c" "video" ];
+  users.users.cassie.extraGroups = [
+    "i2c"
+    "video"
+  ];
 }

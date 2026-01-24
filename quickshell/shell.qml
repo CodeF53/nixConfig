@@ -5,6 +5,7 @@ import qs.tray
 import qs.calendar
 import qs.power
 import qs.notification
+import qs.brightness
 
 PanelWindow {
     id: root
@@ -44,6 +45,7 @@ PanelWindow {
             spacing: 4
             padding: 2
             Tray {}
+            Brightness {}
             NotificationTray {}
         }
     }
