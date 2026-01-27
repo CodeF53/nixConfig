@@ -13,10 +13,6 @@
       url = "github:grantimatter/eden-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    rootchat = {
-      url = "github:CodeF53/rootchat-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";

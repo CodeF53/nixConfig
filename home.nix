@@ -6,7 +6,6 @@
     ./homeManager/dev.nix
     ./homeManager/mpv.nix
     ./homeManager/zen.nix
-    inputs.rootchat.homeModules.default
   ];
   programs.home-manager.enable = true;
 
@@ -16,10 +15,6 @@
     stateVersion = "25.05";
   };
 
-  programs.rootchat = {
-    enable = true;
-    shaHash = "sha256-F4DyFbeSFNAqchMldbPllGWt0kCsg+xBnGrMKA8N8MM=";
-  };
 
   programs.btop = {
     enable = true;
