@@ -3,7 +3,6 @@
 {
   programs.hyprland.enable = true;
   environment.systemPackages = with pkgs; [
-    hyprlauncher
     hyprpaper
     hyprtoolkit
     hyprshot
@@ -11,6 +10,7 @@
     jq
     hyprpolkitagent
     clipse
+    libqalculate
     quickshell
     kdePackages.qtdeclarative
   ];
