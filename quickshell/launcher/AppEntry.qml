@@ -20,7 +20,7 @@ Rectangle {
         cursorShape: Qt.PointingHandCursor
         onPressed: {
             app.modelData.execute();
-            launcher.exit();
+            modal.visible = false;
         }
     }
 
