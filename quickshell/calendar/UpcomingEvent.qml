@@ -23,7 +23,6 @@ Rectangle {
                     return;
                 try {
                     calendarWidget.upcomingEvents = JSON.parse(stdout);
-                    console.log(JSON.stringify(calendarWidget.upcomingEvents, null, 2));
                 } catch (e) {
                     console.error(e);
                     calendarWidget.upcomingEvents = e;
