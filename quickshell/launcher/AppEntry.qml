@@ -8,8 +8,8 @@ Rectangle {
 
     implicitHeight: row.implicitHeight
     anchors {
-        left: parent.left
-        right: parent.right
+        left: parent?.left
+        right: parent?.right
     }
     color: ListView.isCurrentItem ? "#181825" : "transparent"
 
