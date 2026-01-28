@@ -15,6 +15,8 @@
     stateVersion = "25.05";
   };
 
+  # todo: make more advaced with https://gist.github.com/jtrv/47542c8be6345951802eebcf9dc7da31
+  services.easyeffects.enable = true;
 
   programs.btop = {
     enable = true;
