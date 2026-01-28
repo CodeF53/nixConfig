@@ -58,12 +58,7 @@ ShortcutModal {
         id: searchBox
         focus: true
         implicitWidth: parent.width
-        background: Rectangle {
-            color: "#313244"
-        }
-        color: "white"
         placeholderText: "search..."
-        placeholderTextColor: "#a6adc8"
 
         Keys.onUpPressed: appResultsList.decrementCurrentIndex()
         Keys.onDownPressed: appResultsList.incrementCurrentIndex()
