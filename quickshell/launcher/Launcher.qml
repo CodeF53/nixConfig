@@ -30,7 +30,7 @@ ShortcutModal {
         function calc() {
             if (modal.queryIsEmpty)
                 return;
-            math.command = ["qalc", "-t", modal.query.slice(1)];
+            math.command = ["ss", "-t", modal.query.slice(1)];
             math.running = true;
         }
         stdout: StdioCollector {
@@ -50,8 +50,8 @@ ShortcutModal {
 
     onVisibleChanged: {
         if (modal.visible) // update currency rates on opening
-            Quickshell.execDetached(["qalc", "-exrates", "1+1"]) // 1+1 so it exits immediately instead of going into interactive mode
-        searchBox.text = ""
+            Quickshell.execDetached(["qalc", "-exrates", "1+1"]); // 1+1 so it exits immediately instead of going into interactive mode
+        searchBox.text = "";
     }
 
     TextField {
