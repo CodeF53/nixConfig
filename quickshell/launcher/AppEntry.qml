@@ -18,10 +18,7 @@ Rectangle {
         hoverEnabled: true
         onEntered: app.ListView.view.currentIndex = app.index
         cursorShape: Qt.PointingHandCursor
-        onPressed: {
-            app.modelData.execute();
-            modal.visible = false;
-        }
+        onPressed: modal.launchApp(app.modelData)
     }
 
     Row {

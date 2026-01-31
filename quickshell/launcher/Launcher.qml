@@ -21,7 +21,26 @@ ShortcutModal {
         const term = query.toLowerCase();
         return DesktopEntries.applications.values // comments are added here to prevent qmlls from putting this all on one line
         .filter(entry => entry.name.toLowerCase().includes(term)) //
-        .sort((a, b) => a.name.localeCompare(b.name)); // TODO: sort by usage frequency
+        .sort((a, b) => (db.get(b.id) - db.get(a.id)) || a.name.localeCompare(b.name));
+    }
+
+    FileView {
+        id: dbFile
+        path: Qt.resolvedUrl("./launchCounts.json")
+        onLoadFailed: writeAdapter()
+        JsonAdapter {
+            id: db
+            property var count: ({})
+            function get(id) {
+                return count[id] ?? 0;
+            }
+        }
+    }
+    function launchApp(entry) {
+        entry.execute();
+        db.count[entry.id] = db.get(entry.id) + 1;
+        dbFile.writeAdapter(); // it doesnt detect the write so we have to manually do this and this is cleaner than doing it in a way that it detects the write
+        modal.visible = false;
     }
 
     Process {
@@ -72,7 +91,7 @@ ShortcutModal {
                     return;
                 Quickshell.execDetached(["wl-copy", math.result]);
             } else {
-                appResultsList.currentItem.modelData.execute();
+                modal.launchApp(appResultsList.currentItem.modelData);
             }
             modal.visible = false;
         }
