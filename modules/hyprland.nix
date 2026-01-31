@@ -9,7 +9,7 @@
     playerctl
     jq
     hyprpolkitagent
-    clipse
+    cliphist
     libqalculate
     quickshell
     kdePackages.qtdeclarative

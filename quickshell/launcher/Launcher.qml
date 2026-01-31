@@ -11,7 +11,7 @@ ShortcutModal {
     windowHeight: 300
     shortcutName: "launcher"
 
-    readonly property string query: searchBox.text
+    readonly property string query: search.text
     readonly property bool queryIsEmpty: /^[=!]?$/.test(query)
     readonly property bool queryIsCalc: query[0] === "="
     readonly property bool queryIsDuck: !queryIsCalc && query.includes("!")
@@ -49,13 +49,15 @@ ShortcutModal {
     }
 
     onVisibleChanged: {
-        if (modal.visible) // update currency rates on opening
+        if (modal.visible) {
             Quickshell.execDetached(["qalc", "-exrates", "1+1"]); // 1+1 so it exits immediately instead of going into interactive mode
-        searchBox.text = "";
+            search.forceActiveFocus();
+        }
+        search.text = "";
     }
 
     TextField {
-        id: searchBox
+        id: search
         focus: true
         implicitWidth: parent.width
         placeholderText: "search..."
@@ -101,7 +103,7 @@ ShortcutModal {
         id: appResultsList
         visible: !modal.queryIsDuck && !modal.queryIsCalc
         anchors {
-            top: searchBox.bottom
+            top: search.bottom
             bottom: parent.bottom
             left: parent.left
             right: parent.right
