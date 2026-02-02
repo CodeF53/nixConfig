@@ -49,7 +49,7 @@ ShortcutModal {
         function calc() {
             if (modal.queryIsEmpty)
                 return;
-            math.command = ["ss", "-t", modal.query.slice(1)];
+            math.command = ["qalc", "-t", modal.query.slice(1)];
             math.running = true;
         }
         stdout: StdioCollector {
