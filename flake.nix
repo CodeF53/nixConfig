@@ -52,6 +52,7 @@
         ./modules/beamng.nix
         ./modules/controller-nonsense.nix
         ./modules/yt-dlp.nix
+        ./modules/whisper.nix
         home-manager.nixosModules.home-manager
       ];
     in
