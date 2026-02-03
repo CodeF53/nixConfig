@@ -46,6 +46,27 @@ in
     sizes.terminal = 10;
   };
 
+  fonts.packages = with pkgs; [
+    nunito
+    mochie-iosevka
+    twitter-color-emoji
+    nerd-fonts.symbols-only
+    rounded-mgenplus
+  ];
+  fonts.fontconfig.defaultFonts =
+    let
+      extraFonts = [
+        "Twitter Color Emoji"
+        "Symbols Nerd Font"
+        "Rounded Mgen+ 1c"
+      ];
+    in
+    {
+      serif = [ "Nunito" ] ++ extraFonts;
+      sansSerif = [ "Nunito" ] ++ extraFonts;
+      monospace = [ "Mochie Iosevka" ] ++ extraFonts;
+    };
+
   stylix.cursor = {
     name = "Posy_Cursor";
     package = pkgs.posy-cursors;
