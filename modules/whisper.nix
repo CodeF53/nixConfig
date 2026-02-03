@@ -1,53 +1,47 @@
 { lib, pkgs, ... }:
 
 let
+  # https://github.com/NixOS/nixpkgs/pull/486473
   hyprwhspr-rs = (
     pkgs.rustPlatform.buildRustPackage (finalAttrs: {
       pname = "hyprwhspr-rs";
-      version = "v0.3.16";
-
+      version = "0.3.16";
+    
       src = pkgs.fetchFromGitHub {
         owner = "better-slop";
-        repo = finalAttrs.pname;
-        tag = finalAttrs.version;
+        repo = "hyprwhspr-rs";
+        tag = "v${finalAttrs.version}";
         hash = "sha256-ZiVooOo5VhvyM2s/fd5pW4nlCbI06QoAoHdXmfj/x/c=";
       };
-
+    
       cargoHash = "sha256-n1aWPdIJmJy13lt8EyfgKuwVSVVJ9jtHq7RZ6FVsAl0=";
-
-      nativeBuildInputs = with pkgs; [
-        pkg-config
-        makeWrapper
-      ];
-
+    
+      nativeBuildInputs = [ pkgs.pkg-config ];
+    
       buildInputs = with pkgs; [
-        openssl_3
+        openssl
         alsa-lib
         onnxruntime
         systemd
         libxkbcommon
       ];
-
+    
       # fix hardcoded binary/assets paths
       postPatch = ''
-        # https://github.com/better-slop/hyprwhspr-rs/blob/b7e91a0f5727f164828ce708d9335ba8c7df24fb/src/config.rs#L753
-        TARGET_FILE=$(grep -rIl "/usr/bin/whisper-cli" src)
-        substituteInPlace "$TARGET_FILE" --replace-fail "/usr/bin/whisper-cli" "${lib.getExe pkgs.whisper-cpp}"
-
-        # https://github.com/better-slop/hyprwhspr-rs/blob/b7e91a0f5727f164828ce708d9335ba8c7df24fb/src/config.rs#L778
-        TARGET_FILE=$(grep -rIl "/usr/lib/hyprwhspr-rs/share/assets" src)
-        substituteInPlace "$TARGET_FILE" --replace-fail "/usr/lib/hyprwhspr-rs/share/assets" "$out/share/assets"
+        substituteInPlace src/config.rs \
+          --replace-fail "/usr/bin/whisper-cli" "${lib.getExe pkgs.whisper-cpp}" \
+          --replace-fail "/usr/lib/hyprwhspr-rs/share/assets" "$out/share/assets"
       '';
-
+    
       # default voice activation sounds
       postInstall = ''
-        mkdir -p $out/share/assets
-        cp -r assets/. $out/share/assets
+        install -Dm644 assets/* --target-directory $out/share/assets
       '';
-
+    
+      # provide onnx runtime libraries to prevent default behavior of downloading them during the build step
       env = {
         ORT_STRATEGY = "system";
-        ORT_LIB_LOCATION = "${pkgs.onnxruntime}/lib";
+        ORT_LIB_LOCATION = "${lib.getLib pkgs.onnxruntime}/lib";
       };
     })
   );
