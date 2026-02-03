@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }:
 
@@ -29,11 +28,6 @@
   stylix.targets.zed.enable = false;
   programs.zed-editor = {
     enable = true;
-    package = (pkgs.zed-editor.override {
-      buildRemoteServer = false;
-    }).overrideAttrs {
-      doCheck = false;
-    };
     extraPackages = [ pkgs.nixd ];
     extensions = [
       "nix"
@@ -85,8 +79,6 @@
         show_user_picture = false;
         show_sign_in = false;
       };
-      ui_font_family = "Nunito";
-      buffer_font_family = "Mochie Iosevka";
     };
   };
 }
