@@ -18,17 +18,19 @@ MouseArea {
         actionsSupported: true
         onNotification: notification => {
             notification.tracked = true;
+            notification.createdAt = Date.now();
         }
     }
     readonly property list<Notification> list: notificationServer.trackedNotifications.values
     readonly property int notificationCount: tray.list.length
+    property bool open: false
     onNotificationCountChanged: {
         if (notificationCount === 0)
-            notificationPopup.visible = false;
+            tray.open = false;
     }
     onPressed: {
         if (notificationCount > 0)
-            notificationPopup.visible = !notificationPopup.visible;
+            tray.open = !tray.open;
     }
 
     Rectangle {
@@ -50,15 +52,21 @@ MouseArea {
         id: notificationPopup
         anchor.window: root
         anchor.rect.x: root.width - width
-        anchor.rect.y: root.height + 2
-        implicitWidth: notificationCol.implicitWidth + 1
-        implicitHeight: notificationCol.implicitHeight + 1
+        anchor.rect.y: root.height + 8
+        implicitHeight: 1080 - anchor.rect.y
+        implicitWidth: notificationList.implicitWidth + 1
         color: "transparent"
+        mask: Region {
+            item: notificationList
+        }
+        visible: true
+
         Column {
-            id: notificationCol
+            id: notificationList
+            width: 300
             spacing: 2
             Repeater {
-                model: tray.list
+                model: tray.list.slice().reverse() // the .slice prevents the array from being duplicated
                 NotificationItem {}
             }
         }
