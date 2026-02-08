@@ -4,8 +4,8 @@ import Quickshell.Io
 
 PanelWindow {
     id: statusIndicator
-    width: 48
-    height: 48
+    implicitWidth: 48
+    implicitHeight: implicitWidth
 
     // focus should never be given to this panel
     mask: Region {}
