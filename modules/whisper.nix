@@ -60,15 +60,21 @@ in
       };
       audio_feedback = true;
       transcription = {
-        provider = "parakeet";
-        parakeet.model_dir = "~/.config/hyprwhspr-rs/parakeet";
+        provider = "whisper_cpp";
+        whisper_cpp = {
+          model = "large-v3-turbo-q5_0";
+          models_dirs = [ "~/.config/hyprwhspr-rs/" ];
+          vad.enabled = true;
+        };
       };
     };
-    xdg.configFile."hyprwhspr-rs/parakeet".source = (pkgs.fetchgit {
-      url = "https://huggingface.co/istupakov/parakeet-tdt-0.6b-v3-onnx";
-      rev = "abd2878d52a678ce380088ef9d9b1d9664404565";
-      sha256 = "sha256-eaxzbE7aEYku66iyRUez30OHYTExWI0dbybfo32pEug=";
-      fetchLFS = true;
+    xdg.configFile."hyprwhspr-rs/ggml-large-v3-turbo-q5_0.bin".source = (pkgs.fetchurl {
+      url = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3-turbo-q5_0.bin";
+      sha256 = "sha256-OUIhcJzVrR9AxG5gMcphvOiJMebgiMGIKUxtWlX/p+I=";
+    });
+    xdg.configFile."hyprwhspr-rs/ggml-silero-v5.1.2.bin".source = (pkgs.fetchurl {
+      url = "https://huggingface.co/ggml-org/silero-v5.1.2/resolve/main/ggml-silero-v5.1.2.bin";
+      sha256 = "sha256-KZQNmNQrkfvQXOSJ8+z3xy8KQvAn5IdZGaKPtMBOos8=";
     });
   };
 }
