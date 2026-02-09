@@ -78,7 +78,12 @@ ShortcutModal {
     TextField {
         id: search
         focus: true
-        implicitWidth: parent.width
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            margins: 2
+        }
         placeholderText: "search..."
 
         Keys.onUpPressed: appResultsList.decrementCurrentIndex()
@@ -126,6 +131,7 @@ ShortcutModal {
             bottom: parent.bottom
             left: parent.left
             right: parent.right
+            margins: 2
         }
         model: modal.appResults
         clip: true

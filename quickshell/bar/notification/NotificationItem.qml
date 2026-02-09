@@ -1,7 +1,9 @@
 import QtQuick
 import Quickshell.Services.Notifications
 
-Rectangle {
+import qs.util
+
+GradientBorder {
     id: notification
     required property Notification modelData
     color: "#1e1e2e"

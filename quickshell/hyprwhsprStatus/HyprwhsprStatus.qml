@@ -2,6 +2,8 @@ import Quickshell
 import QtQuick
 import Quickshell.Io
 
+import qs.util
+
 PanelWindow {
     id: statusIndicator
     implicitWidth: 128
@@ -22,27 +24,10 @@ PanelWindow {
     visible: status.alt === "active" || status.alt === "processing"
 
     color: "transparent"
-    Rectangle {
+    
+    GradientBorder {
         anchors.fill: parent
-        gradient: Gradient {
-            GradientStop {
-                position: 0
-                color: "#74c7ec"
-            }
-            GradientStop {
-                position: 1
-                color: "#89b4fa"
-            }
-        }
         radius: parent.height
-    }
-    Rectangle {
-        anchors {
-            fill: parent
-            margins: 2
-        }
-        radius: parent.height
-        color: "#1e1e2e"
         
         MicWibbler {
             visible: status.alt === "active"

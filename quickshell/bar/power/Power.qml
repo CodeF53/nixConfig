@@ -6,23 +6,15 @@ import qs.util
 
 BarButton {
     id: powerMenuButton
-    mouseArea.onPressed: powerPopup.visible = !powerPopup.visible
+    mouseArea.onPressed: popup.open()
     icon: Qt.resolvedUrl("./power.svg")
     
-    PopupWindow {
-        id: powerPopup
-        anchor.window: root
-        anchor.rect.x: 0
-        anchor.rect.y: root.height
+    Popup {
+        id: popup
+        y: 22
         implicitWidth: powerItems.implicitWidth
         implicitHeight: powerItems.implicitHeight
-        color: "#1e1e2e"
-        MouseArea {
-            id: powerPopupMouseArea
-            anchors.fill: parent
-            hoverEnabled: true
-            onExited: powerPopup.visible = false
-        }
+        
         Column {
             id: powerItems
             padding: 2
@@ -48,26 +40,29 @@ BarButton {
                     id: powerEntry
                     required property var modelData
                     cursorShape: Qt.PointingHandCursor
-                    Process {
-                        id: powerAction
-                        command: ["systemctl", powerEntry.modelData.action]
-                    }
-                    onPressed: powerAction.running = true
+                    hoverEnabled: true
+                    onPressed: Quickshell.execDetached(["systemctl", powerEntry.modelData.action])
                     implicitWidth: 90
                     implicitHeight: text.implicitHeight
-                    Row {
-                        spacing: 2
-                        Image {
-                            source: powerEntry.modelData.icon
-                            width: 16
-                            height: 16
-                            anchors.verticalCenter: parent.verticalCenter
+                    Rectangle {
+                        anchors.fill: parent
+                        color: powerEntry.containsMouse ? "#11111b" : "transparent"
+                    }
+                    Image {
+                        id: icon
+                        source: powerEntry.modelData.icon
+                        width: 16
+                        height: 16
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                    Text {
+                        anchors {
+                            left: icon.right
+                            margins: 2
                         }
-                        Text {
-                            id: text
-                            text: powerEntry.modelData.name
-                            color: "white"
-                        }
+                        id: text
+                        text: powerEntry.modelData.name
+                        color: "white"
                     }
                 }
             }

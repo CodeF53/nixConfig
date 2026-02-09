@@ -31,27 +31,8 @@ PanelWindow {
     property alias windowWidth: window.width
     property alias windowHeight: window.height
     default property alias content: window.data
-    Rectangle {
-        id: fancyBorder
-        anchors.fill: window
-        anchors.margins: -2
-        gradient: Gradient {
-            GradientStop {
-                position: 0
-                color: "#74c7ec"
-            }
-            GradientStop {
-                position: 1
-                color: "#89b4fa"
-            }
-        }
-        MouseArea { 
-            anchors.fill: parent
-        }
-    }
-    Rectangle {
+    GradientBorder {
         id: window
-        color: "#1e1e2e"
         anchors.centerIn: parent
     }
 }

@@ -49,7 +49,12 @@ ShortcutModal {
     TextField {
         id: search
         focus: true
-        implicitWidth: parent.width
+        anchors {
+            top: parent.top
+            left: parent.left
+            right: parent.right
+            margins: 2
+        }
         placeholderText: "search..."
         Keys.onUpPressed: clipboardList.decrementCurrentIndex()
         Keys.onDownPressed: clipboardList.incrementCurrentIndex()
@@ -60,8 +65,10 @@ ShortcutModal {
         anchors {
             top: search.bottom
             bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            margins: 2
         }
-        implicitWidth: parent.width
         model: modal.clipboardFiltered
         clip: true
         delegate: ClipEntry {}
