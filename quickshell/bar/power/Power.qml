@@ -2,16 +2,13 @@ import Quickshell
 import QtQuick
 import Quickshell.Io
 
-MouseArea {
+import qs.util
+
+BarButton {
     id: powerMenuButton
-    implicitHeight: 16
-    implicitWidth: 16
-    cursorShape: Qt.PointingHandCursor
-    onPressed: powerPopup.visible = !powerPopup.visible
-    anchors.verticalCenter: parent.verticalCenter
-    Image {
-        source: "./power.svg"
-    }
+    mouseArea.onPressed: powerPopup.visible = !powerPopup.visible
+    icon: Qt.resolvedUrl("./power.svg")
+    
     PopupWindow {
         id: powerPopup
         anchor.window: root

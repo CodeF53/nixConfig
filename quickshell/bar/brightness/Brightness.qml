@@ -3,13 +3,12 @@ import Quickshell.Io
 import QtQuick.Controls
 import QtQuick
 
-MouseArea {
+import qs.util
+
+BarButton {
     id: brightnessButton
-    implicitHeight: 16
-    implicitWidth: 16
-    cursorShape: Qt.PointingHandCursor
-    onPressed: brightnessPopup.visible = !brightnessPopup.visible
-    anchors.verticalCenter: parent.verticalCenter
+    icon: Qt.resolvedUrl("./sun.svg")
+    mouseArea.onPressed: brightnessPopup.visible = !brightnessPopup.visible
 
     property var displays: []
     Process {
@@ -38,10 +37,7 @@ MouseArea {
             }
         }
     }
-
-    Image {
-        source: "./sun.svg"
-    }
+    
     PopupWindow {
         id: brightnessPopup
         anchor.window: root

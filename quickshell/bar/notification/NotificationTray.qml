@@ -2,15 +2,11 @@ import Quickshell
 import QtQuick
 import Quickshell.Services.Notifications
 
-MouseArea {
+import qs.util
+
+BarButton {
     id: tray
-    implicitHeight: 16
-    implicitWidth: 16
-    cursorShape: Qt.PointingHandCursor
-    anchors.verticalCenter: parent.verticalCenter
-    Image {
-        source: "./bell.svg"
-    }
+    icon: Qt.resolvedUrl("./bell.svg")
 
     NotificationServer {
         id: notificationServer
@@ -28,7 +24,7 @@ MouseArea {
         if (notificationCount === 0)
             tray.open = false;
     }
-    onPressed: {
+    mouseArea.onPressed: {
         if (notificationCount > 0)
             tray.open = !tray.open;
     }
