@@ -83,29 +83,4 @@
       ];
     };
   };
-
-  # #region yazi file picker
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-termfilechooser
-      kdePackages.xdg-desktop-portal-kde
-    ];
-    config.common = {
-      "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
-    };
-  };
-  home.sessionVariables = {
-    GTK_USE_PORTAL = "1";
-  };
-  xdg.configFile."xdg-desktop-portal-termfilechooser/config" = {
-    force = true;
-    text = lib.generators.toINI { } {
-      filechooser.cmd = "${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh";
-    };
-  };
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = "yazi.desktop";
-  };
-  # #endregion
 }

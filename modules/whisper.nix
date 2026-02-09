@@ -5,16 +5,16 @@ let
   hyprwhspr-rs = (
     pkgs.rustPlatform.buildRustPackage (finalAttrs: {
       pname = "hyprwhspr-rs";
-      version = "0.3.16";
+      version = "0.3.17";
     
       src = pkgs.fetchFromGitHub {
         owner = "better-slop";
         repo = "hyprwhspr-rs";
         tag = "v${finalAttrs.version}";
-        hash = "sha256-ZiVooOo5VhvyM2s/fd5pW4nlCbI06QoAoHdXmfj/x/c=";
+        hash = "sha256-TzdicqIR59OVmGOI2AKo41mVt85sJyyf+tz7XI0v5CI=";
       };
     
-      cargoHash = "sha256-n1aWPdIJmJy13lt8EyfgKuwVSVVJ9jtHq7RZ6FVsAl0=";
+      cargoHash = "sha256-VCV60rwNUUQ/KQ1VRLQ5IJu/P7DRpbRxsLc2dM1YQ4U=";
     
       nativeBuildInputs = [ pkgs.pkg-config ];
     
