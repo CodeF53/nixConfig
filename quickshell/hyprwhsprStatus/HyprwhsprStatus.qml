@@ -4,8 +4,8 @@ import Quickshell.Io
 
 PanelWindow {
     id: statusIndicator
-    implicitWidth: 48
-    implicitHeight: implicitWidth
+    implicitWidth: 128
+    implicitHeight: 48
 
     // focus should never be given to this panel
     mask: Region {}
@@ -43,8 +43,11 @@ PanelWindow {
         radius: parent.height
         color: "#1e1e2e"
     }
-    Image {
-        source: "./mic.svg"
-        anchors.centerIn: parent
+
+    MicWibbler {
+        anchors {
+            fill: parent
+            margins: 8
+        }
     }
 }

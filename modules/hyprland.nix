@@ -13,6 +13,9 @@
     libqalculate
     quickshell
     kdePackages.qtdeclarative
+    # microphone visualizer for hyprwhspr quickshell widget
+    cava
+    pulseaudio
   ];
   home-manager.users.cassie = { config, ... }: {
     xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink /home/cassie/nixConfig/hypr;
