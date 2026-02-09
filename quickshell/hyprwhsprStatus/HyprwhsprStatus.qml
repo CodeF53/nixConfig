@@ -15,10 +15,11 @@ PanelWindow {
         watchChanges: true
         onFileChanged: reload()
         JsonAdapter {
+            id: status
             property string alt: ""
-            onAltChanged: statusIndicator.visible = alt === "active"
         }
     }
+    visible: status.alt === "active" || status.alt === "processing"
 
     color: "transparent"
     Rectangle {
@@ -42,12 +43,19 @@ PanelWindow {
         }
         radius: parent.height
         color: "#1e1e2e"
-    }
-
-    MicWibbler {
-        anchors {
-            fill: parent
-            margins: 8
+        
+        MicWibbler {
+            visible: status.alt === "active"
+            anchors {
+                fill: parent
+                margins: 8
+            }
+        }
+        Text {
+            visible: status.alt === "processing"
+            anchors.centerIn: parent
+            text: "Processing..."
+            color: "white"
         }
     }
 }
