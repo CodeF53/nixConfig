@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.loader = {
     systemd-boot.enable = false;
     grub = {
@@ -54,7 +54,6 @@
   };
   security.sudo.wheelNeedsPassword = false;
 
-  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -76,7 +75,6 @@
     pnpm
     git
     footswitch # https://amazon.com/dp/B08MC4PFHY/
-    pwvucontrol
     croc
     qbittorrent
     signal-desktop
@@ -86,6 +84,7 @@
     syncplay
     rar
     nixfmt
+    nur.repos.Ev357.helium
   ];
 
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
@@ -124,13 +123,17 @@
   };
 
   # puppy leave a treat in return sometimes :3
-  nixpkgs.overlays = [
-    (final: prev: {
-      ouch = prev.ouch.override {
-        enableUnfree = true;
-      };
-    })
-  ];
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        ouch = prev.ouch.override {
+          enableUnfree = true;
+        };
+      })
+      inputs.nur.overlays.default
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
