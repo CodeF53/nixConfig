@@ -14,19 +14,20 @@ cava -p /dev/stdin <<EOF
     bars = ${micWibbler.barCount}
     framerate = 15
     autosens = 1
+    sensitivity = 150
+    lower_cutoff_freq = 100
+    higher_cutoff_freq = 8000
     [input]
     method = pulse
     source = $(pactl get-default-source)
     [output]
+    channels = mono
     method = raw
     raw_target = /dev/stdout
     data_format = ascii
     ascii_max_range = 1000
     bar_delimiter = 59
     [smoothing]
-    monstercat = 1.5
-    waves = 0
-    gravity = 100
     noise_reduction = 0.20
 EOF`]
         stdout: SplitParser {
