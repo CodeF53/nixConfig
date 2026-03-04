@@ -129,7 +129,10 @@ extras@{ pkgs, inputs, ... }:
 
   # puppy leave a treat in return sometimes :3
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      cudaSupport = true;
+    };
     overlays = [
       (final: prev: {
         ouch = prev.ouch.override {
