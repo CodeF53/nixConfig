@@ -37,13 +37,13 @@ BarButton {
             }
         }
     }
-    
+
     Popup {
         id: popup
         y: 22
         width: brightnessSlider.implicitWidth + 16
         height: brightnessSlider.implicitHeight + 16
-        
+
         Slider {
             id: brightnessSlider
             anchors.centerIn: parent
@@ -52,9 +52,13 @@ BarButton {
             stepSize: 5
             live: false
             value: 50
-            onValueChanged: brightnessButton.displays.forEach(d => {
-                Quickshell.execDetached(["ddcutil", "setvcp", "10", brightnessSlider.value, `--display=${d}`]);
-            })
+            onValueChanged: {
+                brightnessButton.displays.forEach(d => {
+                    Quickshell.execDetached(["ddcutil", "setvcp", "10", brightnessSlider.value, `--display=${d}`]);
+                })
+                Quickshell.execDetached(["brightnessctl", "--device", "asus_screenpad", "s", `${brightnessSlider.value}%`]);
+                Quickshell.execDetached(["brightnessctl", "--device", "intel_backlight", "s", `${Math.max(brightnessSlider.value, 1)}%`]);
+            }
         }
     }
 }

@@ -16,7 +16,12 @@ PanelWindow {
         right: true
     }
 
-    screen: Quickshell.screens.find(s => s.name === "DP-4")
+    screen: {
+        switch (Quickshell.env("HOSTNAME")) {
+            case "cassietop": return Quickshell.screens.find(s => s.name === "eDP-1")
+            case "cassiebox": return Quickshell.screens.find(s => s.name === "DP-4")
+        }
+    }
     implicitHeight: 16
     color: "#1e1e2e"
 

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+extras@{ pkgs, inputs, ... }:
 
 {
   boot.kernelPackages = pkgs.linuxPackages_6_18; # I wanna use zen but there is no linuxPackages_zen_6_18
@@ -30,7 +30,10 @@
   time.timeZone = "America/Denver";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  environment.sessionVariables.NIXOS_OZONE_WL = 1;
+  environment.sessionVariables = {
+    HOSTNAME = extras.host;
+    NIXOS_OZONE_WL = 1;
+  };
 
   services.printing.enable = true;
 
@@ -84,6 +87,7 @@
     syncplay
     rar
     nixfmt
+    brightnessctl
     nur.repos.Ev357.helium
     godsvg
   ];
