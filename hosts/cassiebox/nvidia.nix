@@ -6,10 +6,7 @@
     "modesetting"
     "nvidia"
   ];
-  nixpkgs.config = {
-    cudaSupport = true;
-    cudaCapabilities = [ "8.9" ];
-  };
+  nixpkgs.config.cudaSupport = true;
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
