@@ -1,8 +1,5 @@
 extras@{ config, pkgs, ... }:
 
-let
-  asusWmiScreenpad = config.boot.kernelPackages.callPackage ./asus-wmi-screenpad.nix { };
-in
 {
   hardware.enableRedistributableFirmware = extras.lib.mkDefault true;
 
