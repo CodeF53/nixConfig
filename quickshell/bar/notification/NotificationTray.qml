@@ -48,7 +48,7 @@ BarButton {
         id: notificationPopup
         anchor.window: root
         anchor.rect.x: root.width - width
-        anchor.rect.y: root.height + 8
+        anchor.rect.y: 24
         implicitHeight: 1080 - anchor.rect.y
         implicitWidth: notificationList.implicitWidth + 1
         color: "transparent"
@@ -62,7 +62,7 @@ BarButton {
             width: 300
             spacing: 2
             Repeater {
-                model: tray.list.slice().reverse() // the .slice prevents the array from being duplicated
+                model: tray.list.slice(-10).reverse()
                 NotificationItem {}
             }
         }
