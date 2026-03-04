@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_6_18; # I wanna use zen but there is no linuxPackages_zen_6_18
   boot.loader = {
     systemd-boot.enable = false;
     grub = {
@@ -85,6 +85,7 @@
     rar
     nixfmt
     nur.repos.Ev357.helium
+    godsvg
   ];
 
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
