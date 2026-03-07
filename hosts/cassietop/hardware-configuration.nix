@@ -70,7 +70,14 @@ extras@{ config, pkgs, ... }:
   powerManagement.cpuFreqGovernor = "performance";
   services.throttled.enable = true;
   services.power-profiles-daemon.enable = false;
-  environment.systemPackages = [ pkgs.auto-cpufreq ];
+  environment.systemPackages = [
+    pkgs.auto-cpufreq
+    (pkgs.writeShellScriptBin "toggle_screenpad" ''
+        bl_path='/sys/class/backlight/asus_screenpad/bl_power'
+        # 1 = off, 0 = on
+        echo $((! $(sudo cat $bl_path))) | sudo tee $bl_path > /dev/null
+    '')
+  ];
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
     charger = {
