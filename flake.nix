@@ -70,6 +70,7 @@
         };
         modules = [
           ./hosts/cassietop/hardware-configuration.nix
+          ./hosts/cassietop/audio-fix.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
         ++ commonModules;
