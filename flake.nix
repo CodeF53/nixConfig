@@ -1,7 +1,5 @@
 {
   inputs = {
-    env-toml.url = "file:///home/cassie/nixConfig/env.toml";
-    env-toml.flake = false;
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -48,7 +46,6 @@
         ./modules/wayland-session.nix
         ./modules/hyprland.nix
         ./modules/theme.nix
-        ./modules/environment-variables.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
         ./modules/flatpak.nix
         ./modules/dev.nix

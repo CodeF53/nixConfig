@@ -66,14 +66,7 @@
 
       terminal.shell.program = "fish";
       autosave.after_delay.milliseconds = 500;
-      agent = {
-        default_profile = "ask";
-        default_model = {
-          provider = "google";
-          model = "gemini-2.5-flash";
-        };
-      };
-      features.edit_prediction_provider = "none";
+      disable_ai = true;
       title_bar = {
         show_onboarding_banner = false;
         show_user_picture = false;
