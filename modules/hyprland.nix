@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
     hyprpaper
     hyprtoolkit
-    hyprshot
+    flameshot
     playerctl
     jq
     hyprpolkitagent
