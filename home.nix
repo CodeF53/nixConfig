@@ -4,6 +4,7 @@
   imports = [
     ./homeManager/cli
     ./homeManager/dev.nix
+    ./homeManager/flameshot.nix
     ./homeManager/mpv.nix
     ./homeManager/zen.nix
   ];
