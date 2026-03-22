@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 let
   nunito = pkgs.stdenv.mkDerivation {
@@ -71,5 +76,36 @@ in
     name = "Posy_Cursor";
     package = pkgs.posy-cursors;
     size = 32;
+  };
+
+  home-manager.users.cassie = {
+    # global dark mode fixes
+    dconf.settings."org/gnome/desktop/interface".color-scheme = lib.mkForce "prefer-dark";
+    systemd.user.sessionVariables = config.home-manager.users.cassie.home.sessionVariables;
+    home.sessionVariables.GTK_USE_PORTAL = "1";
+    gtk = {
+      enable = true;
+      theme = {
+        package = lib.mkForce pkgs.magnetic-catppuccin-gtk;
+        name = lib.mkForce "Catppuccin-GTK-Dark";
+      };
+    };
+    qt = {
+      enable = true;
+      platformTheme.name = "qt6ct";
+      style.name = "kvantum";
+    };
+
+    catppuccin = {
+      enable = true;
+      cache.enable = true;
+    };
+
+    # fix stylix and catppuccin infighting
+    stylix.targets.btop.colors.enable = false;
+    stylix.targets.yazi.colors.enable = false;
+    stylix.targets.zed.colors.enable = false;
+    stylix.targets.gtk.colors.enable = false;
+    stylix.targets.qt.enable = false;
   };
 }

@@ -15,6 +15,10 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +30,7 @@
       nixpkgs,
       home-manager,
       stylix,
+      catppuccin,
       ...
     }@inputs:
     let
@@ -37,7 +42,10 @@
           inherit inputs;
           inherit host;
         };
-        users.cassie = import ./home.nix;
+        users.cassie.imports = [
+          ./home.nix
+          catppuccin.homeModules.catppuccin
+        ];
       };
 
       commonModules = [

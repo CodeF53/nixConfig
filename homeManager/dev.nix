@@ -25,7 +25,6 @@
 
   programs.direnv.enable = true;
 
-  stylix.targets.zed.enable = false;
   programs.zed-editor = {
     enable = true;
     extraPackages = [ pkgs.nixd ];
@@ -36,7 +35,6 @@
       "catppuccin-icons"
     ];
     userSettings = {
-      theme = "Catppuccin Mocha";
       icon_theme = "Catppuccin Mocha";
       languages.Nix.language_servers = [
         "nixd"

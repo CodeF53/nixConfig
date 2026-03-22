@@ -3,6 +3,11 @@
 {
   imports = [ inputs.zen-browser.homeModules.beta ];
 
+  stylix.targets.zen-browser = {
+    enableCss = true;
+    profileNames = [ "default" ];
+  };
+
   programs.zen-browser = {
     enable = true;
 
@@ -40,8 +45,10 @@
 
     profiles.default = {
       isDefault = true;
+      
+      settings."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       userChrome = ''
-        .zen-current-workspace-indicator { display: none !important; }
+        .zen-workspace-tabs-section.zen-current-workspace-indicator { display: none !important; }
       '';
 
       containersForce = false;
@@ -50,19 +57,6 @@
         main = {
           id = "{e2954c5d-e2ab-483d-8917-bf0d2e3089f1}";
           icon = "chrome://browser/skin/zen-icons/selectable/circle.svg";
-          theme.opacity = 1.0;
-          theme.colors = [
-            {
-              red = 32;
-              green = 42;
-              blue = 70;
-            }
-            {
-              red = 73;
-              green = 26;
-              blue = 75;
-            }
-          ];
           position = 1000;
         };
         dev = {
