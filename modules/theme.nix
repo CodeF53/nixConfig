@@ -90,15 +90,12 @@ in
         name = lib.mkForce "Catppuccin-GTK-Dark";
       };
     };
-    qt = {
-      enable = true;
-      platformTheme.name = "qt6ct";
-      style.name = "kvantum";
-    };
+    qt.enable = true;
 
     catppuccin = {
       enable = true;
       cache.enable = true;
+      qt5ct.enable = true;
     };
 
     # fix stylix and catppuccin infighting
@@ -106,6 +103,5 @@ in
     stylix.targets.yazi.colors.enable = false;
     stylix.targets.zed.colors.enable = false;
     stylix.targets.gtk.colors.enable = false;
-    stylix.targets.qt.enable = false;
   };
 }
