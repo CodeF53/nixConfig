@@ -31,6 +31,7 @@
           "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}" = "violentmonkey";
           "wappalyzer@crunchlabz.com" = "wappalyzer";
           "{cf3dba12-a848-4f68-8e2d-f9fadc0721de}" = "google-lighthouse";
+          "DisableYouTubeShortsScrolling@Yelorix.com" = "disable-yt-shorts-scrolling";
         };
 
         AutofillAddressEnabled = false;
