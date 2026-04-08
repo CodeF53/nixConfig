@@ -37,9 +37,9 @@ extras@{ pkgs, ... }:
       nano = "micro";
       cat = "bat";
       ls = "eza -1 -l -a -F --color=always --icons --no-permissions --no-user --no-time --no-filesize";
-      sys-rebuild = "nh os switch ~/nixConfig --hostname ${extras.host}";
-      sys-update = "nh os switch --update ~/nixConfig --hostname ${extras.host}";
-      sys-update-shutdown = "nh os boot --update ~/nixConfig --hostname ${extras.host} && sudo shutdown now";
+      hm-log = "journalctl -eu home-manager-cassie.service -S -30s --no-pager";
+      sys-rebuild = "nh os switch ~/nixConfig --hostname ${extras.host} && hm-log";
+      sys-update = "nh os switch --update ~/nixConfig --hostname ${extras.host} && hm-log";
       sys-clean = "nh clean all";
     };
     plugins = with pkgs.fishPlugins; [
