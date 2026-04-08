@@ -13,6 +13,12 @@
     sgdboop
     r2modman
     mangohud
+    (parallel-launcher.overrideAttrs (oldAttrs: {
+      preConfigure = ''
+        QMAKE="${pkgs.qt6.qtbase}/bin/qmake"
+      ''
+      + oldAttrs.preConfigure;
+    }))
   ];
   programs.eden.enable = true;
 

@@ -93,6 +93,8 @@ extras@{ pkgs, inputs, ... }:
     godsvg
   ];
 
+  boot.kexec.enable = true;
+
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
   nix.settings = {
     trusted-users = [ "cassie" ];

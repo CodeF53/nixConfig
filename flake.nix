@@ -62,6 +62,7 @@
         ./modules/controller-nonsense.nix
         ./modules/yt-dlp.nix
         ./modules/whisper.nix
+        ./modules/vm.nix
         home-manager.nixosModules.home-manager
       ];
     in
