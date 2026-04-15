@@ -23,6 +23,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    asus-numberpad-driver = {
+      url = "github:asus-linux-drivers/asus-numberpad-driver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -77,6 +81,7 @@
         modules = [
           ./hosts/cassietop/hardware-configuration.nix
           ./hosts/cassietop/audio-fix.nix
+          ./hosts/cassietop/numpad.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
         ++ commonModules;
