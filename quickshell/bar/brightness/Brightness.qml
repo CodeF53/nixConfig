@@ -8,7 +8,13 @@ import qs.util
 BarButton {
     id: brightnessButton
     icon: Qt.resolvedUrl("./sun.svg")
-    mouseArea.onPressed: popup.open()
+    mouseArea.onPressed: {
+        if (Quickshell.env("HOSTNAME") === "cassiebox")
+            getCurrentBrightnessCassiebox.running = true
+        if (Quickshell.env("HOSTNAME") === "cassietop")
+            getCurrentBrightnessCassietop.running = true
+        popup.open()
+    }
 
     property var displays: []
     Process {
