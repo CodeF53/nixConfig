@@ -32,6 +32,7 @@
           "wappalyzer@crunchlabz.com" = "wappalyzer";
           "{cf3dba12-a848-4f68-8e2d-f9fadc0721de}" = "google-lighthouse";
           "DisableYouTubeShortsScrolling@Yelorix.com" = "disable-yt-shorts-scrolling";
+          "{d98a3d21-7503-47d7-8973-f236945af2aa}" = "npmx-redirect";
         };
 
         AutofillAddressEnabled = false;
