@@ -82,7 +82,6 @@ extras@{ pkgs, inputs, ... }:
     croc
     qbittorrent
     signal-desktop
-    opencode
     livecaptions
     wl-clipboard
     syncplay
