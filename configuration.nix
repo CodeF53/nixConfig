@@ -1,7 +1,7 @@
 extras@{ pkgs, inputs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_6_18; # I wanna use zen but there is no linuxPackages_zen_6_18
+  boot.kernelPackages = pkgs.linuxPackages_7_0; # I wanna use zen but there is no pinned zen versions like linuxPackages_zen_X_XX
   boot.loader = {
     systemd-boot.enable = false;
     grub = {
@@ -53,6 +53,7 @@ extras@{ pkgs, inputs, ... }:
     extraGroups = [
       "networkmanager"
       "wheel"
+      "input"
     ];
     shell = pkgs.fish;
   };
@@ -104,10 +105,12 @@ extras@{ pkgs, inputs, ... }:
       "https://cache.nixos.org"
       "https://cache.nixos-cuda.org"
       "https://nix-community.cachix.org"
+      "https://eden-flake.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "eden-flake.cachix.org-1:9orwA5vFfBgb67pnnpsxBqILQlb2UI2grWt4zHHAxs8="
     ];
   };
 
@@ -154,5 +157,5 @@ extras@{ pkgs, inputs, ... }:
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "26.05"; # Did you read the comment?
 }

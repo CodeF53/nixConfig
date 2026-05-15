@@ -13,7 +13,7 @@
   home = {
     username = "cassie";
     homeDirectory = "/home/cassie";
-    stateVersion = "25.05";
+    stateVersion = "26.05";
   };
 
   programs.btop = {

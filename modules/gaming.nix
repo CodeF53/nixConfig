@@ -3,10 +3,12 @@
 {
   imports = [ inputs.eden.nixosModules.default ];
   environment.systemPackages = with pkgs; [
-    lutris
     protonup-rs
     (prismlauncher.override {
-      additionalLibs = [ ocl-icd khronos-ocl-icd-loader ];
+      additionalLibs = [
+        ocl-icd
+        khronos-ocl-icd-loader
+      ];
       jdks = [ openjdk25 ];
     })
     dolphin-emu
@@ -20,7 +22,10 @@
       + oldAttrs.preConfigure;
     }))
   ];
-  programs.eden.enable = true;
+  programs.eden = {
+    enable = false;
+    enableCache = true;
+  };
 
   programs.steam = {
     enable = true;

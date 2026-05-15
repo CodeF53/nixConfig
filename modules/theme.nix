@@ -89,6 +89,7 @@ in
         package = lib.mkForce pkgs.magnetic-catppuccin-gtk;
         name = lib.mkForce "Catppuccin-GTK-Dark";
       };
+      gtk4.theme = config.home-manager.users.cassie.gtk.theme;
     };
     qt.enable = true;
 
