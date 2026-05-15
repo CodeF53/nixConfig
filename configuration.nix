@@ -58,6 +58,8 @@ extras@{ pkgs, inputs, ... }:
   };
   security.sudo.wheelNeedsPassword = false;
 
+  services.mullvad-vpn.enable = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -90,6 +92,7 @@ extras@{ pkgs, inputs, ... }:
     brightnessctl
     nur.repos.Ev357.helium
     godsvg
+    mullvad
   ];
 
   boot.kexec.enable = true;
