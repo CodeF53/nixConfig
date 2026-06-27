@@ -114,7 +114,7 @@
           name = "unduck";
           urls = [
             {
-              template = "https://unduck.link";
+              template = "https://s.dunkirk.sh";
               params = [
                 {
                   name = "q";
