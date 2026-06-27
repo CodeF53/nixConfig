@@ -1,7 +1,6 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [ inputs.eden.nixosModules.default ];
   environment.systemPackages = with pkgs; [
     protonup-rs
     (prismlauncher.override {
@@ -15,6 +14,7 @@
     sgdboop
     r2modman
     mangohud
+    eden
     (parallel-launcher.overrideAttrs (oldAttrs: {
       preConfigure = ''
         QMAKE="${pkgs.qt6.qtbase}/bin/qmake"
@@ -22,10 +22,6 @@
       + oldAttrs.preConfigure;
     }))
   ];
-  programs.eden = {
-    enable = false;
-    enableCache = true;
-  };
 
   programs.steam = {
     enable = true;

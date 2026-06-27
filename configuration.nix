@@ -105,12 +105,10 @@ extras@{ pkgs, inputs, ... }:
       "https://cache.nixos.org"
       "https://cache.nixos-cuda.org"
       "https://nix-community.cachix.org"
-      "https://eden-flake.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "eden-flake.cachix.org-1:9orwA5vFfBgb67pnnpsxBqILQlb2UI2grWt4zHHAxs8="
     ];
   };
 
