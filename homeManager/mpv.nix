@@ -41,13 +41,9 @@ in
       input-builtin-bindings = false;
       sub-filter-regex-append = "opensubtitles\\.org";
       sub-auto = "all";
-      hidpi-window-scale = false;
-      hwdec = "auto";
+      hwdec = "auto"; # defaults "off"
       profile = "high-quality";
-      vulkan-swap-mode = "auto";
-      gpu-context = "wayland";
       # youtube!
-      ytdl-format = "bestvideo+bestaudio/best";
       slang = "en";
       ytdl-raw-options = "ignore-config=,sub-lang=en,write-sub=,write-auto-sub=,embed-chapters=";
       script-opts = "ytdl_hook-ytdl_path=/run/current-system/sw/bin/yt-dlp";
