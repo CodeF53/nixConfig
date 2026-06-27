@@ -5,6 +5,7 @@ import qs.bar.power
 import qs.bar.clock
 import qs.bar.calendar
 import qs.bar.tray
+import qs.bar.bluetooth
 import qs.bar.brightness
 import qs.bar.notification
 
@@ -17,10 +18,11 @@ PanelWindow {
     }
 
     screen: {
-        switch (Quickshell.env("HOSTNAME")) {
-            case "cassietop": return Quickshell.screens.find(s => s.name === "eDP-1")
-            case "cassiebox": return Quickshell.screens.find(s => s.name === "DP-4")
-        }
+        const target = {
+            cassietop: "eDP-1",
+            cassiebox: "DP-1",
+        }[Quickshell.env("HOSTNAME")]
+        return Quickshell.screens.find(s => s.name === target)
     }
     implicitHeight: 16
     color: "#1e1e2e"
