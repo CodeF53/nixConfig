@@ -32,7 +32,6 @@ extras@{ pkgs, inputs, ... }:
 
   environment.sessionVariables = {
     HOSTNAME = extras.host;
-    "IS_${pkgs.lib.toUpper extras.host}" = 1;
     NIXOS_OZONE_WL = 1;
   };
 
