@@ -10,17 +10,6 @@ GradientBorder {
     width: parent.width
     implicitHeight: notificationCore.implicitHeight
 
-    function timeSinceCreated() {
-        return Date.now() - modelData.createdAt;
-    }
-    property bool tease: notification.timeSinceCreated() < 10000
-    Timer {
-        interval: Math.max(1, 10000 - notification.timeSinceCreated())
-        running: notification.tease
-        onTriggered: notification.tease = false
-    }
-    visible: tray.open || notification.tease
-
     Image {
         id: img
         anchors {

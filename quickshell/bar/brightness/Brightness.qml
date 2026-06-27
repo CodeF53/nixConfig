@@ -53,7 +53,7 @@ BarButton {
         }
     }
 
-    Popup {
+    BorderedPopup {
         id: popup
         y: 22
         width: brightnessSlider.implicitWidth + 16

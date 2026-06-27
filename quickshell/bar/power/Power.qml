@@ -9,7 +9,7 @@ BarButton {
     mouseArea.onPressed: popup.open()
     icon: Qt.resolvedUrl("./power.svg")
     
-    Popup {
+    BorderedPopup {
         id: popup
         y: 22
         implicitWidth: powerItems.implicitWidth

@@ -1,5 +1,5 @@
-import Quickshell
 import QtQuick
+import QtQuick.Controls
 import Quickshell.Services.Notifications
 
 import qs.util
@@ -14,7 +14,6 @@ BarButton {
         actionsSupported: true
         onNotification: notification => {
             notification.tracked = true;
-            notification.createdAt = Date.now();
         }
     }
     readonly property list<Notification> list: notificationServer.trackedNotifications.values
@@ -22,11 +21,11 @@ BarButton {
     property bool open: false
     onNotificationCountChanged: {
         if (notificationCount === 0)
-            tray.open = false;
+            notificationPopup.close();
     }
     mouseArea.onPressed: {
         if (notificationCount > 0)
-            tray.open = !tray.open;
+            notificationPopup.open();
     }
 
     Rectangle {
@@ -44,23 +43,28 @@ BarButton {
         }
     }
 
-    PopupWindow {
-        id: notificationPopup
-        anchor.window: root
-        anchor.rect.x: root.width - width
-        anchor.rect.y: 24
-        implicitHeight: 1080 - anchor.rect.y
-        implicitWidth: notificationList.implicitWidth + 1
-        color: "transparent"
-        mask: Region {
-            item: notificationList
-        }
-        visible: true
+    // Popup {
+    //     width: 300
+    //     height: 300
+    //     y: 22
+    //     background: Rectangle { color: "green"; anchors.fill: parent }
+    //     visible: true
+    // }
 
+    Popup {
+        id: notificationPopup
+        popupType: Popup.Window
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+        y: 22 - 16
+        width: Math.max(notificationList.implicitWidth, 1)
+        height: Math.max(notificationList.implicitHeight, 1)
+        background: null
         Column {
             id: notificationList
             width: 300
             spacing: 2
+            padding: 8
             Repeater {
                 model: tray.list.slice(-10).reverse()
                 NotificationItem {}
