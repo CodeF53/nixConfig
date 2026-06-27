@@ -21,6 +21,9 @@
       ''
       + oldAttrs.preConfigure;
     }))
+
+    # makes "exit to desktop" in gamescope'd gamepadui work
+    (writeShellScriptBin "steamos-session-select" "pkill gamescope")
   ];
 
   programs.steam = {
@@ -28,6 +31,7 @@
     extraPackages = with pkgs; [
       nss
       curl
+      gamescope
     ];
     extraCompatPackages = with pkgs; [ proton-ge-bin ];
     remotePlay.openFirewall = true;
@@ -37,7 +41,7 @@
   };
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    capSysNice = false;
   };
 
   programs.gamemode.enable = true;
