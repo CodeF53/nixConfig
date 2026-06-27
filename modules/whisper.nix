@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = [ pkgs.hyprwhspr-rs ];
-  services.hyprwhspr-rs.enable = true;
   users.users.cassie.extraGroups = [ "input" ];
 
   home-manager.users.cassie = {

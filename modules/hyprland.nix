@@ -3,6 +3,8 @@
 {
   programs.hyprland.enable = true;
   environment.systemPackages = with pkgs; [
+    lua-language-server
+
     hyprpaper
     hyprtoolkit
     flameshot
@@ -20,6 +22,7 @@
   ];
   home-manager.users.cassie = { config, ... }: {
     xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink /home/cassie/nixConfig/hypr;
-    xdg.configFile."quickshell".source = config.lib.file.mkOutOfStoreSymlink /home/cassie/nixConfig/quickshell;
+    xdg.configFile."quickshell".source =
+      config.lib.file.mkOutOfStoreSymlink /home/cassie/nixConfig/quickshell;
   };
 }
