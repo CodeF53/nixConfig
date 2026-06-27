@@ -10,10 +10,12 @@
       ];
       jdks = [ openjdk25 ];
     })
+    satisfactorymodmanager
     dolphin-emu
     sgdboop
     r2modman
     mangohud
+    lutris
     eden
     (parallel-launcher.overrideAttrs (oldAttrs: {
       preConfigure = ''
