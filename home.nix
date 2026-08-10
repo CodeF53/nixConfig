@@ -6,6 +6,7 @@
     ./homeManager/dev.nix
     ./homeManager/flameshot.nix
     ./homeManager/mpv.nix
+    ./homeManager/spicetify.nix
     ./homeManager/zen.nix
   ];
   programs.home-manager.enable = true;
