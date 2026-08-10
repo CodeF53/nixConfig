@@ -55,7 +55,6 @@
         ./modules/hyprland.nix
         ./modules/theme.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
-        ./modules/llm.nix
         ./modules/flatpak.nix
         ./modules/dev.nix
         ./modules/gaming.nix
