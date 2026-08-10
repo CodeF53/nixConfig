@@ -32,7 +32,7 @@
         what-size = mkPlugin {
           author = "pirafrank";
           repo = "what-size.yazi";
-          hash = "sha256-7q/45TopqbojNRvYDmP9+hgSGPmiyLHBcV051qpOB2Y=";
+          hash = "sha256-ZCRxs7KecMgu5tSqQoKCPIELSI2X2SAOeYG6Ct6gTBo=";
         };
       };
     keymap = {

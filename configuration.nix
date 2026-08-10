@@ -1,7 +1,7 @@
 extras@{ pkgs, inputs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_7_1; # I wanna use zen but there is no pinned zen versions like linuxPackages_zen_X_XX
+  boot.kernelPackages = pkgs.linuxPackages_xanmod; # I wanna use zen but there is no pinned zen versions like linuxPackages_zen_X_XX
   boot.loader = {
     systemd-boot.enable = false;
     grub = {
@@ -84,13 +84,12 @@ extras@{ pkgs, inputs, ... }:
     croc
     qbittorrent
     signal-desktop
-    livecaptions
     wl-clipboard
     syncplay
     rar
     nixfmt
     brightnessctl
-    nur.repos.Ev357.helium
+    nur.repos.lonerOrz.helium
     godsvg
     mullvad
   ];

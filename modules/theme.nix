@@ -86,7 +86,7 @@ in
     gtk = {
       enable = true;
       theme = {
-        package = lib.mkForce pkgs.magnetic-catppuccin-gtk;
+        package = lib.mkForce pkgs.catppuccin-gtk;
         name = lib.mkForce "Catppuccin-GTK-Dark";
       };
       gtk4.theme = config.home-manager.users.cassie.gtk.theme;
@@ -95,6 +95,7 @@ in
 
     catppuccin = {
       enable = true;
+      autoEnable = true;
       cache.enable = true;
       qt5ct.enable = true;
     };

@@ -17,6 +17,7 @@
     fd
     ripgrep
     nh
+    ouch
   ];
 
   programs.zoxide = {

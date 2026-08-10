@@ -98,6 +98,7 @@
           ./hosts/cassiebox/disable-motherboard-bluetooth.nix
           ./hosts/cassiebox/audio.nix
           ./hosts/cassiebox/fix-brightness-control.nix
+          ./hosts/cassiebox/wifi.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
         ++ commonModules;
