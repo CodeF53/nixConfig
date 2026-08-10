@@ -6,9 +6,8 @@
 
 {
   home.packages = with pkgs; [
-    vscode
     bun
-    nodejs_latest
+    devenv
   ];
 
   programs.git = {
@@ -21,6 +20,7 @@
       color.ui = true;
       submodule.recurse = true;
     };
+    lfs.enable = true;
   };
 
   programs.direnv.enable = true;
