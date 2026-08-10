@@ -15,7 +15,7 @@
     libqalculate
     quickshell
     kdePackages.qtdeclarative
-    hyprpwcenter
+    pavucontrol
     # microphone visualizer for hyprwhspr quickshell widget
     cava
     pulseaudio
