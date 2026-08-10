@@ -47,7 +47,6 @@
 
     profiles.default = {
       isDefault = true;
-      
       settings."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       userChrome = ''
         .zen-workspace-tabs-section.zen-current-workspace-indicator { display: none !important; }
@@ -78,7 +77,7 @@
         };
         bsky = {
           id = "{e17ce84f-5c52-49a4-9d29-a1dc9d51c485}";
-          url = "https://bsky.app/";
+          url = "https://witchsky.app/";
           isEssential = true;
           position = 2000;
         };
