@@ -1,7 +1,7 @@
 extras@{ pkgs, inputs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_7_0; # I wanna use zen but there is no pinned zen versions like linuxPackages_zen_X_XX
+  boot.kernelPackages = pkgs.linuxPackages_7_1; # I wanna use zen but there is no pinned zen versions like linuxPackages_zen_X_XX
   boot.loader = {
     systemd-boot.enable = false;
     grub = {
@@ -95,6 +95,13 @@ extras@{ pkgs, inputs, ... }:
     mullvad
   ];
 
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-pipewire-audio-capture
+    ];
+  };
+
   boot.kexec.enable = true;
 
   # https://nixos-and-flakes.thiscute.world/nix-store/add-binary-cache-servers
@@ -117,7 +124,7 @@ extras@{ pkgs, inputs, ... }:
     settings.PasswordAuthentication = false;
   };
   users.users.cassie.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDUj/KeS2gfoq1D8X4jQYM+rCgx5+3ls7vTpb0/HVnI"
+    # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDUj/KeS2gfoq1D8X4jQYM+rCgx5+3ls7vTpb0/HVnI" I forgot what this is..
   ];
   networking.firewall.enable = false;
 
