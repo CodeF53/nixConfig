@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Hyprland
 import QtQuick
 
 import qs.bar.power
@@ -18,11 +19,14 @@ PanelWindow {
     }
 
     screen: {
+        // hack until Quickshell.screens[a].serialNumber actually returns something other than ""
+        // https://github.com/quickshell-mirror/quickshell/issues/903
         const target = {
-            cassietop: "eDP-1",
-            cassiebox: "DP-1",
+            cassietop: "...",
+            cassiebox: "Dell Inc. AW2725Q 29Q05B4",
         }[Quickshell.env("HOSTNAME")]
-        return Quickshell.screens.find(s => s.name === target)
+        const name = Hyprland.monitors.values.find(m => m.description === target)?.name
+        return Quickshell.screens.find(s => s.name === name)
     }
     implicitHeight: 16
     color: "#1e1e2e"
