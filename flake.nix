@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -97,6 +98,9 @@
           ./hosts/cassiebox/disable-motherboard-bluetooth.nix
           ./hosts/cassiebox/audio.nix
           ./hosts/cassiebox/fix-brightness-control.nix
+          ./hosts/cassiebox/vr.nix
+          ./hosts/cassiebox/unity-vrchat.nix
+          inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
           { home-manager = homeConfig specialArgs.host; }
         ]
         ++ commonModules;
