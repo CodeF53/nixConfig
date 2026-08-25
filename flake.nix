@@ -52,7 +52,6 @@
       commonModules = [
         stylix.nixosModules.stylix
         ./configuration.nix
-        ./modules/wayland-session.nix
         ./modules/hyprland.nix
         ./modules/theme.nix
         inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -98,7 +97,6 @@
           ./hosts/cassiebox/disable-motherboard-bluetooth.nix
           ./hosts/cassiebox/audio.nix
           ./hosts/cassiebox/fix-brightness-control.nix
-          ./hosts/cassiebox/wifi.nix
           { home-manager = homeConfig specialArgs.host; }
         ]
         ++ commonModules;

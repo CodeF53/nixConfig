@@ -7,6 +7,14 @@ let
   ]);
 in
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+      opencv4 = prev.opencv4.override {
+        enableCuda = false;
+      };
+    })
+  ];
+  
   environment.systemPackages = [
     pkgs.ffmpeg-full
     yt-dlp-with-plugins

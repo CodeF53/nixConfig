@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = [ pkgs.hyprwhspr-rs ];
+  environment.systemPackages = [
+    (pkgs.hyprwhspr-rs.override {
+      onnxruntime = pkgs.onnxruntime.override { cudaSupport = false; };
+    })
+  ];
   users.users.cassie.extraGroups = [ "input" ];
 
   home-manager.users.cassie = {

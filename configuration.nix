@@ -1,7 +1,8 @@
 extras@{ pkgs, inputs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_xanmod; # I wanna use zen but there is no pinned zen versions like linuxPackages_zen_X_XX
+  boot.kernelPackages = pkgs.linuxPackages_7_1;
+  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest; # primarily on cachyos so I dont have to add bigscreenbeyond patches
   boot.loader = {
     systemd-boot.enable = false;
     grub = {
@@ -65,18 +66,11 @@ extras@{ pkgs, inputs, ... }:
     "flakes"
   ];
   environment.systemPackages = with pkgs; [
-    (
-      (pkgs.discord.override (old: {
-        withOpenASAR = true;
-        withEquicord = true;
-        withTTS = false;
-      })).overrideAttrs
-      (old: {
-        postInstall = old.postInstall + ''
-          echo 'require ("/home/cassie/proj/Equicord/dist/desktop/patcher.js")' > $out/opt/Discord/resources/app.asar/index.js
-        '';
-      })
-    ) # consider switching to declaritavely defining plugins https://github.com/KaylorBen/nixcord
+    (pkgs.discord.override (old: {
+      withOpenASAR = true;
+      withEquicord = true;
+      withTTS = false;
+    }))
     equibop # for developing plugins
     pnpm
     git

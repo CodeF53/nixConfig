@@ -1,13 +1,16 @@
 { pkgs, ... }:
 
 {
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
+  services.displayManager.ly.enable = true;
   environment.systemPackages = with pkgs; [
     lua-language-server
 
     hyprpaper
     hyprtoolkit
-    flameshot
     playerctl
     jq
     hyprpolkitagent
@@ -15,6 +18,8 @@
     libqalculate
     quickshell
     kdePackages.qtdeclarative
+    satty
+    grim
     pavucontrol
     # microphone visualizer for hyprwhspr quickshell widget
     cava
