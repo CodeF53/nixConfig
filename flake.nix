@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,6 +52,7 @@
       };
 
       commonModules = [
+        { nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ]; }
         stylix.nixosModules.stylix
         ./configuration.nix
         ./modules/hyprland.nix
