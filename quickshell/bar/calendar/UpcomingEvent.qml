@@ -71,6 +71,10 @@ Rectangle {
                 ms,
                 eventStarted
             });
+
+            const startDiff = now - event.startMs
+            if (startDiff >= 0 && startDiff <= 1000)
+                Quickshell.execDetached(["mpv", "--no-video", (new URL(Qt.resolvedUrl("event.mp3")))]);
         }
     }
 

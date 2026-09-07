@@ -6,7 +6,6 @@ import qs.bar.power
 import qs.bar.clock
 import qs.bar.calendar
 import qs.bar.tray
-import qs.bar.bluetooth
 import qs.bar.brightness
 import qs.bar.notification
 
