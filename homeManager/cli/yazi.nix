@@ -48,7 +48,7 @@
             "C" = "plugin ${lib.getExe pkgs.ouch}";
             "<C-y>" = "plugin wl-clipboard";
             "<C-s>" = "plugin what-size";
-            "b" = ''shell -- ${lib.getExe pkgs.ripdrag} --and-exit --no-click --all-compact "$@"'';
+            "b" = ''shell -- ${lib.getExe pkgs.ripdrag} --and-exit --no-click --all-compact %s'';
           };
     };
     settings = {

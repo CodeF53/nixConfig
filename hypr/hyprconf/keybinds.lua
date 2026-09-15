@@ -13,6 +13,8 @@ hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd([[hyprctl dispatch "hl.dsp.global(\"q
 -- prevent `r` from being spammed into textbox while holding my hyprwhspr bind (super+r)
 hl.bind("SUPER + R", hl.dsp.exec_cmd([[bash -e ""]]), { release = true })
 
+hl.bind("SUPER + SHIFT + L", hl.dsp.dpms({ action = "toggle"}))
+
 hl.bind("SUPER + left", hl.dsp.focus { direction = "l" })
 hl.bind("SUPER + right", hl.dsp.focus { direction = "r" })
 hl.bind("SUPER + up", hl.dsp.focus { direction = "u" })

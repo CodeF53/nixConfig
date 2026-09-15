@@ -1,4 +1,4 @@
-args@{ pkgs, ... }:
+args@{ pkgs, lib, ... }:
 
 args.lib.mkMerge [
   {
@@ -22,17 +22,23 @@ args.lib.mkMerge [
       enable = true;
       highPriority = true;
     };
-    systemd.user.services.monado.environment = {
-      STEAMVR_LH_ENABLE = "true";
-      LH_OVERRIDE_IPD_MM = "61";
-      VP2_RESOLUTION = "2";
-      XRT_COMPOSITOR_FORCE_WAYLAND_DIRECT = "1";
-      XRT_COMPOSITOR_FORCE_NVIDIA = "0";
-      # preformance env vars from lvra discord
-      XRT_COMPOSITOR_USE_PRESENT_WAIT = "1";
-      U_PACING_COMP_TIME_FRACTION_PERCENT = "90";
-      U_PACING_APP_USE_MIN_FRAME_PERIOD = "1";
-      U_PACING_APP_IMMEDIATE_WAIT_FRAME_RETURN_BELOW_REFRESH = "1";
+    systemd.user.services.monado = {
+      environment = {
+        STEAMVR_LH_ENABLE = "true";
+        LH_OVERRIDE_IPD_MM = "61";
+        XRT_COMPOSITOR_FORCE_WAYLAND_DIRECT = "1";
+        # preformance env vars from lvra discord
+        XRT_COMPOSITOR_USE_PRESENT_WAIT = "1";
+        U_PACING_COMP_TIME_FRACTION_PERCENT = "90";
+        U_PACING_APP_USE_MIN_FRAME_PERIOD = "1";
+        U_PACING_APP_IMMEDIATE_WAIT_FRAME_RETURN_BELOW_REFRESH = "1";
+      };
+      serviceConfig = {
+        # 240/144hz take up too many display heads, and I need more for my vr headset when turning on monado
+        # SetPrimaryDisplayRefresh is defined in hypr/host/cassiebox.lua
+        ExecStartPre=''${lib.getExe' pkgs.hyprland "hyprctl"} eval "SetPrimaryDisplayRefresh('119.88')"'';
+        ExecStopPost=''${lib.getExe' pkgs.hyprland "hyprctl"} eval "SetPrimaryDisplayRefresh('239.99')"'';
+      };
     };
   }
 

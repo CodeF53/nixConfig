@@ -14,11 +14,12 @@
     home.packages = [ unityhub pkgs.alcom ];
     home.activation.wrapUnityFhs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       editor="${editorDir}"
-      if [ -x "$editor/Unity" ] && [ ! -e "$editor/Unity.real" ]; then
+      if [ -e "$editor/Unity" ] && [ ! -e "$editor/Unity.real" ]; then
         $DRY_RUN_CMD mv "$editor/Unity" "$editor/Unity.real"
+      fi
+      if [ -e "$editor/Unity.real" ]; then
         $DRY_RUN_CMD install -m755 ${wrapper} "$editor/Unity"
       fi
     '';
   };
 }
-  

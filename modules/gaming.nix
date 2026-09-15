@@ -1,8 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
-    protonup-rs
     (prismlauncher.override {
       additionalLibs = [
         ocl-icd
@@ -35,7 +34,7 @@
       curl
       gamescope
     ];
-    extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    extraCompatPackages = with pkgs; [ proton-ge-bin proton-ge-rtsp-bin ];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
