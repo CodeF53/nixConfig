@@ -34,7 +34,7 @@
       curl
       gamescope
     ];
-    extraCompatPackages = with pkgs; [ proton-ge-bin proton-ge-rtsp-bin ];
+    extraCompatPackages = with pkgs; [ proton-ge-bin proton-rtsp-bin ];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;

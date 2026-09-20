@@ -21,6 +21,7 @@ args.lib.mkMerge [
     services.monado = {
       enable = true;
       highPriority = true;
+      forceDefaultRuntime = true;
     };
     systemd.user.services.monado = {
       environment = {
@@ -40,11 +41,6 @@ args.lib.mkMerge [
         ExecStopPost=''${lib.getExe' pkgs.hyprland "hyprctl"} eval "SetPrimaryDisplayRefresh('239.99')"'';
       };
     };
-  }
-
-  {
-    # https://wiki.vronlinux.org/docs/distros/nixos/#runtimes
-    home-manager.users.cassie.xdg.configFile."openxr/1/active_runtime.json".source = "${pkgs.monado}/share/openxr/1/openxr_monado.json";
   }
 
   {
