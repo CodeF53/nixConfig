@@ -1,9 +1,29 @@
-args@{ pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
-args.lib.mkMerge [
+lib.mkMerge [
   {
-    environment.systemPackages = with pkgs; [ wayvr ];
+    environment.systemPackages = [
+      pkgs.wayvr
+      (pkgs.makeDesktopItem {
+        name = "startvr";
+        desktopName = "Monado and WayVR";
+        exec = "${lib.getExe pkgs.kitty} ${pkgs.writeShellScript "startvr" ''
+          trap 'kill $(jobs -p) 2>/dev/null' EXIT
+          trap 'systemctl --user stop monado; exit' INT
+    
+          systemctl --user start monado
+          journalctl --user -u monado.service --follow --output cat --since "-2s" &
+          ${lib.getExe pkgs.wayvr} &
+    
+          while systemctl --user is-active -q monado; do sleep 1; done
+        ''}";
+        terminal = false;
+        categories = [ "Utility" ];
+        icon = "wayvr";
+      })
+    ];
   }
+  
   {
     # https://wiki.vronlinux.org/docs/hardware/bigscreen-beyond/#udev-rules
     services.udev.extraRules = ''
